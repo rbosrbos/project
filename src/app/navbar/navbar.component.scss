@@ -20,45 +20,46 @@ nav {
 
   .menu-links {
     display: none;
-    position: absolute;
-    width: 100%;
-    margin-left: -1rem;
-    top:3.7rem;
-    background-color: var(--color4);
-    box-shadow: inset 0 7px 9px -7px #000000;
+    
+    // position: absolute;
+    // width: 100%;
+    // margin-left: -1rem;
+    // top:3.7rem;
+    // background-color: var(--color4);
+    // box-shadow: inset 0 7px 9px -7px #000000;
 
-    &.active {
-      display: block;
-    }
+    // &.active {
+    //   display: block;
+    // }
 
-    ul {
-      text-align: center;
+    // ul {
+    //   text-align: center;
       
-      li {
-        display: list-item;
-        a {
-          display: block;
-          padding: 1rem 0;
-          color: var(--color2);
+    //   li {
+    //     display: list-item;
+    //     a {
+    //       display: block;
+    //       padding: 1rem 0;
+    //       color: var(--color2);
 
-          &:hover {
-            cursor: pointer;
-            background-color: var(--color2);
-            color: var(--color1)
-          }
-        }
-        .dropdown {
-          display:block;
-          .dropdown-content {
-            box-shadow: none;
-            margin:auto;
-            position:static;
-            width:auto;
-            overflow:auto;
-          }
-        }
-      }
-    }
+    //       &:hover {
+    //         cursor: pointer;
+    //         background-color: var(--color2);
+    //         color: var(--color1)
+    //       }
+    //     }
+    //     .dropdown {
+    //       display:block;
+    //       .dropdown-content {
+    //         box-shadow: none;
+    //         margin:auto;
+    //         position:static;
+    //         width:auto;
+    //         overflow:auto;
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   .nav-lang {
