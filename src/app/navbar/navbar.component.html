@@ -1,0 +1,46 @@
+<div class="nav-spacer"></div>
+  <nav>
+    <div class="logo">
+      <a href="">
+        <fa-icon [icon]="['fas', 'tree']"
+          style="margin-right:8px;font-size: 30px;filter: drop-shadow(.05rem .05rem .2rem #000);"></fa-icon>LusoNature
+      </a>
+    </div>
+    <div class="menu-links">
+      <ul>
+        <li *ngFor="let item of _menu">
+          
+          <div *ngIf="item.dropdown; else hasntDropdown" class="dropdown">
+            <a title="Change color scheme" href="" (click)="toggleDropdown($event)">
+              Change Theme <fa-icon style="font-size:10px;" [icon]="['fas', 'chevron-down']"></fa-icon>
+            </a>
+            <div class="dropdown-content">
+              <div *ngFor="let item of item.dropdown let i=index;"><a href="" (click)="changeTheme($event,i)">{{item.name}}</a></div>
+            </div>
+          </div>
+          <ng-template #hasntDropdown>
+            <a *ngIf="!item.icon; else withIcon" title="{{item.title}}" href="" [routerLink]="[item.href]" [innerHTML]="item.name"></a>
+            <ng-template #withIcon>
+              <a title="{{item.title}}" href="">
+                <fa-icon [icon]="item.icon"></fa-icon>
+              </a>
+            </ng-template>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+    <app-weather></app-weather>
+    <div class="nav-lang">
+      <a title="Mudar idioma para Português" href="#"><img src="assets/images/pt.png" alt=""></a>
+      <a title="Change language to English" href="#"><img src="assets/images/uk.png" alt=""></a>
+
+    </div>
+    <div class="burger" (click)="toggleMenu()">
+      <svg class="hambuguer" style="position:absolute" width="24px" height="24px" viewBox="0 0 24 24"
+        style="fill:var(--color2);fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+        <rect class="top" x="3" y="6" width="18" height="2"></rect>
+        <rect class="middle" x="3" y="11" width="18" height="2"></rect>
+        <rect class="bottom" x="3" y="16" width="18" height="2"></rect>
+      </svg>
+    </div>
+  </nav>

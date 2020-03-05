@@ -1,0 +1,272 @@
+@import '../../style.vars.scss';
+
+.nav-spacer {
+  padding-top: 3em;
+}
+
+nav {
+  background-color: var(--color1);
+  -webkit-box-shadow: 0 .2rem .2rem 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 .2rem .2rem 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 .2rem .2rem 0px rgba(0, 0, 0, 0.75);
+  display: flex;
+  min-height: 3.5em;
+  padding: .2rem 1rem 0 1rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+
+  .menu-links {
+    display: none;
+    position: absolute;
+    width: 100%;
+    margin-left: -1rem;
+    top:3.7rem;
+    background-color: var(--color4);
+    box-shadow: inset 0 7px 9px -7px #000000;
+
+    &.active {
+      display: block;
+    }
+
+    ul {
+      text-align: center;
+      
+      li {
+        display: list-item;
+        a {
+          display: block;
+          padding: 1rem 0;
+          color: var(--color2);
+
+          &:hover {
+            cursor: pointer;
+            background-color: var(--color2);
+            color: var(--color1)
+          }
+        }
+        .dropdown {
+          display:block;
+          .dropdown-content {
+            box-shadow: none;
+            margin:auto;
+            position:static;
+            width:auto;
+            overflow:auto;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-lang {
+    display: none;
+  }
+
+  app-weather {
+    display: none;
+  }
+
+  .burger {
+    cursor: pointer;
+    order: 4;
+  }
+
+  .logo {
+    order: 1;
+    font-family: 'Eczar';
+    font-size: 1.5rem;
+    text-shadow: .05rem .05rem .2rem #000;
+    margin-right: 15px;
+
+    a {
+      display: flex;
+      align-items: center;
+      color: var(--color0);
+      transition: text-shadow .2s ease;
+
+      &:hover {
+        color: white;
+        text-shadow: .05rem .05rem .2rem var(--shadows1);
+      }
+    }
+  }
+
+  img {
+    margin-left: 10px;
+    width: 1.5rem;
+  }
+
+
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      display: inline;
+      padding-right: .9rem;
+      font-size: 1rem;
+
+
+      a {
+        color: var(--color0);
+        transition: color .1s ease-in-out;
+
+        &.open {
+          color: var(--color4);
+        }
+
+        .fa-user {
+          margin-right: 1rem;
+        }
+
+        &:hover {
+          color: var(--color4);
+
+        }
+      }
+    }
+  }
+
+  .dropdown {
+    display: inline-block;
+    position: relative;
+  }
+
+  @keyframes dropdown-movein {
+    0% {
+      max-height: 0
+    }
+
+    100% {
+      max-height: 600px
+    }
+  }
+
+  @keyframes dropdown-moveout {
+    0% {
+      max-height: 600px
+    }
+
+    100% {
+      max-height: 0
+    }
+
+  }
+
+  .dropdown-content {
+    background-color: var(--color4);
+    border-radius: 0 0 .5rem .5rem;
+    margin-top: 1.2rem;
+    padding: 0;
+    position: absolute;
+    width: 11rem;
+    overflow: hidden;
+    box-shadow: .1rem .1rem 1rem #000000;
+    box-shadow: inset 0 7px 9px -7px #000000;
+    max-height: 0;
+
+    &.open {
+      animation: dropdown-movein 1s;
+      max-height: 600px;
+    }
+
+    &.closed {
+      animation: dropdown-moveout .4s;
+    }
+
+    div {
+      &:hover {
+        background-color: var(--color2);
+      }
+
+      a {
+        transition: none;
+        padding: .5rem 1rem;
+        margin: .1rem 0;
+        color: var(--color2);
+        display: inline-block;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .menu-links {
+    display: none;
+    position: absolute;
+    width: 100%;
+    margin-left: -1rem;
+    top:3.7rem;
+    background-color: var(--color4);
+    box-shadow: inset 0 7px 9px -7px #000000;
+
+    &.active {
+      display: block;
+    }
+
+    ul {
+      text-align: center;
+      
+      li {
+        display: list-item;
+        a {
+          display: block;
+          padding: 1rem 0;
+          color: var(--color2);
+
+          &:hover {
+            cursor: pointer;
+            background-color: var(--color2);
+            color: var(--color1)
+          }
+        }
+        .dropdown {
+          display:block;
+          .dropdown-content {
+            box-shadow: none;
+            margin:auto;
+            position:static;
+            width:auto;
+            overflow:auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 1024px) {
+  .burger {
+    display: none;
+  }
+
+  nav {
+    .menu-links {
+      display: flex;
+      flex-direction: column;
+      margin-right: auto;
+      order: 2;
+    }
+    
+    .nav-lang {
+      display: block;
+      order: 3;
+    }
+
+    app-weather {
+      display: block;
+      order: 3;
+    }
+  }
+}
+
+@media (min-width: 1216px) {}
+
+@media (min-width: 1408px) {}

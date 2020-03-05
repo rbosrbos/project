@@ -1,0 +1,11 @@
+.weather {
+  align-items: center;
+  color:var(--color0);
+  cursor:pointer;
+  display:flex;
+  div {
+    align-items: center;
+    display:flex;
+    font-size: .9rem;
+  }
+}
