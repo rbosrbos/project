@@ -13,6 +13,7 @@ import { WeatherforecastComponent } from './weatherforecast/weatherforecast.comp
 import { ConstantsService } from './constants.service';
 import { GetlocationService } from './getlocation.service';
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { TranslationService } from './translation.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MainpageComponent } from './mainpage/mainpage.component';
   ],
   providers: [
     ConstantsService,
-    GetlocationService
+    GetlocationService,
+    TranslationService
   ],
   bootstrap: [AppComponent]
 })

@@ -16,7 +16,6 @@ export class GetlocationService {
         resolve([latitude.toString(), longitude.toString()]);
       });
     });
-    
   }
   constructor() { }
 }

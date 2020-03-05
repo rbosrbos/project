@@ -5,24 +5,30 @@
 
 html {
   font-size: 15px;
-  font-family: 'Roboto';
+  font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
 }
+
 body {
   background-image: url('https://external-preview.redd.it/0Xav8KGjl0kJE6lJBAlpV2c-wKWGdjzw1WaF1RX5xxk.jpg?auto=webp&s=fdbdadd45c7a34d73a0b71879448b5b897821bb9');
+
   a {
     text-decoration: none;
   }
 }
-app-root {
-  height:100%;
+
+.root-div {
+  height: 100%;
 }
+
 .ml-1 {
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
+
 .mr-1 {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
+
 .my-1 {
-  margin-top:.5rem;
-  margin-bottom:.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }

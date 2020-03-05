@@ -1,9 +1,9 @@
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 interface IDropDown {
-  id?:number;
-  href?:string;
-  name:string;
+  id? : number;
+  href? : string;
+  name : string;
 }
 export interface IMenu {
   href:string;
