@@ -8,9 +8,8 @@ import { TranslationService } from '../translation.service';
   styleUrls: ['./mainpage.component.scss']
 })
 export class MainpageComponent implements OnInit {
-  @Input('title') pageName: string;
 
-  constructor(private title: TitleService, private langService: TranslationService) { 
+  constructor(private title: TitleService, private langService: TranslationService) {
     title.setTitle(langService.pageTitle + ' - ' + langService.EN.mainpageTitle);
   }
 

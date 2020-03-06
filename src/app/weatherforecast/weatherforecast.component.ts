@@ -16,7 +16,11 @@ export class WeatherforecastComponent implements OnInit {
   WeatherData: RootObject;
   Location: GetlocationService;
 
-  constructor(private location: GetlocationService, private http: HttpClient, private title: TitleService, private langService: TranslationService) {
+  constructor(
+    private location: GetlocationService,
+    private http: HttpClient,
+    private title: TitleService,
+    private langService: TranslationService) {
     this.Location = location;
     title.setTitle(langService.pageTitle + ' - ' + langService.EN.weatherforecastTitle);
     this.Location.getLocation().then(

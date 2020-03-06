@@ -71,10 +71,6 @@ export class NavbarComponent implements OnInit {
     elLinks.classList.toggle('active');
   }
 
-  public setTitle( newTitle: string) {
-    this.title.setTitle("fuck");
-  }
-
   constructor(private consts: ConstantsService, private langContent: TranslationService, private title: TitleService) {
     let i = 0;
     this.Consts = consts;
@@ -84,7 +80,6 @@ export class NavbarComponent implements OnInit {
       i++;
     });
   }
-  
 
   ngOnInit(): void {}
 
