@@ -12,7 +12,7 @@
           
           <div *ngIf="item.dropdown; else hasntDropdown" class="dropdown">
             <a href="" (click)="toggleDropdown($event)">
-              Change Theme <fa-icon class="dropdown-arrow-down" [icon]="['fas', 'chevron-down']"></fa-icon>
+              {{ Language["changeTheme"] }} <fa-icon class="dropdown-arrow-down" [icon]="['fas', 'chevron-down']"></fa-icon>
             </a>
             <div class="dropdown-content">
               <div *ngFor="let item of item.dropdown let i=index;"><a href="" (click)="changeTheme($event,i)">{{item.name}}</a></div>
@@ -31,8 +31,8 @@
     </div>
     <div class="weather"><app-weather></app-weather></div>
     <div class="nav-lang">
-      <a title="Mudar idioma para Português" href="#"><img src="assets/images/pt.png" alt=""></a>
-      <a title="Change language to English" href="#"><img src="assets/images/uk.png" alt=""></a>
+      <a title="Mudar idioma para Português" (click)="changeLang('PT')" href="#"><img src="assets/images/pt.png" alt=""></a>
+      <a title="Change language to English" (click)="changeLang('EN')" href="#"><img src="assets/images/uk.png" alt=""></a>
 
     </div>
     <div class="burger" (click)="toggleMenu()">

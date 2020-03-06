@@ -1,14 +1,22 @@
 import { Injectable } from '@angular/core';
+import { ConstantsService } from './constants.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TranslationService {
+  Actual = 'EN';
   pageTitle = 'LusoNature';
   EN = {
     home: 'Home',
     browse: 'Browse',
     changeTheme: 'Change Theme',
+    changeThemeOptions:[
+      "Cream (Default)",
+      "Blueish",
+      "Purpleish",
+      "QuickSilver"
+    ],
     mainpageTitle: 'Home',
     mainpageHeader: 'Welcome to LusoNature!',
     mainpageContent:
@@ -21,7 +29,13 @@ export class TranslationService {
   PT = {
     home: 'Inicio',
     browse: 'Navegar',
-    changeTheme: 'Tema',
+    changeTheme: 'Mudar Tema',
+    changeThemeOptions: [
+      "Creme (Por defeito)",
+      "Azulado",
+      "Arroxado",
+      "Prateado"
+    ],
     mainpageTitle: 'LusoNature - Início',
     mainpageHeader: 'Bem vindo à LusoNature!',
     mainpageContent:
@@ -31,6 +45,8 @@ export class TranslationService {
     navbarSunset: 'Pôr do sol',
     weatherforecastTitle: 'Previsão Meteorológica'
   };
-
+  changeLang(lang: string) {
+    this.Actual = lang;
+  }
   constructor() {}
 }

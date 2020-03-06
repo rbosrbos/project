@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { IMenu } from 'src/IMenu';
+import { ILanguage } from 'src/ILanguage';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { ConstantsService } from '../constants.service';
 import { TranslationService } from '../translation.service';
@@ -13,27 +15,9 @@ import { TitleService } from '../title.service';
 export class NavbarComponent implements OnInit {
   Consts: ConstantsService;
   LangContent: TranslationService;
+  Language: ILanguage;
   Title: TitleService;
-  Menu: IMenu[] = [
-    {
-      href: '/',
-      name: 'Home'
-    },
-    {
-      href: '/',
-      name: 'Browse'
-    },
-    {
-      href: '#',
-      name: 'Change Theme',
-      dropdown: []
-    },
-    {
-      href: '#',
-      name: 'User',
-      icon: faUser
-    }
-  ];
+  Menu: IMenu[];
   changeTheme(e, i) {
     e.preventDefault();
     for (let j = 0; j < this.consts.themeColors[i].colors.length; j++) {
@@ -71,14 +55,49 @@ export class NavbarComponent implements OnInit {
     elLinks.classList.toggle('active');
   }
 
-  constructor(private consts: ConstantsService, private langContent: TranslationService, private title: TitleService) {
+  changeLang(lang) {
+    //this.Language = this.LangContent[lang];
+    this.LangContent.changeLang(lang);
+    let actual = this.LangContent.Actual;
+    console.log(actual);
+    this.Language = this.LangContent[actual];
+    this.makeMenu();
+  }
+
+  makeMenu() {
+    this.Menu = [
+      {
+        href: '/',
+        name: this.Language.home
+      },
+      {
+        href: '/',
+        name: this.Language.browse
+      },
+      {
+        href: '#',
+        name: 'Change Theme',
+        dropdown: []
+      },
+      {
+        href: '#',
+        name: 'User',
+        icon: faUser
+      }
+    ];
     let i = 0;
-    this.Consts = consts;
-    this.LangContent = langContent;
-    consts.themeColors.forEach(element => {
-      this.Menu[2].dropdown.push({ name: element.name, id: i });
+    this.Consts.themeColors.forEach(element => {
+      this.Menu[2].dropdown.push({ name: this.Language.changeThemeOptions[i], id: i });
       i++;
     });
+  }
+
+  constructor(private consts: ConstantsService, private langContent: TranslationService, private title: TitleService) {
+    this.Consts = consts;
+    this.LangContent = langContent;
+    //this.LangContent.changeLang("EN");
+    this.Language = this.LangContent.EN;
+    this.makeMenu();
   }
 
   ngOnInit(): void {}
