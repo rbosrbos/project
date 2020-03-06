@@ -1,4 +1,4 @@
 <div [routerLink]="['/forecast']" title="Sunrise: {{(WeatherData.sys.sunrise*1000) | date:'HH:mm:ss' }}, Sunset: {{WeatherData.sys.sunset*1000 | date:'HH:mm:ss' }}" *ngIf="WeatherData" class="weather">
   <span>{{WeatherData.name}} - {{WeatherData.sys.country}}</span>
-<div *ngFor="let item of WeatherData.weather"><img src="http://openweathermap.org/img/wn/{{item.icon}}.png" alt="">{{ WeatherData.main.feels_like | number:'2.0-0' }}&deg;C - {{item.description | titlecase}}</div>
+<div *ngFor="let item of WeatherData.weather"><img src="http://openweathermap.org/img/wn/{{item.icon}}.png" alt="">{{ WeatherData.main.temp | number:'2.0-0' }}&deg;C - {{item.description | titlecase}}</div>
 </div>

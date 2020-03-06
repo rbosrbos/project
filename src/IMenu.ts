@@ -8,7 +8,6 @@ interface IDropDown {
 export interface IMenu {
   href: string;
   name: string;
-  title: string;
   icon?: IconDefinition;
   dropdown?: Array<IDropDown>;
 }

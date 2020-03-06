@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TitleService } from '../title.service';
+import { TranslationService } from '../translation.service';
 
 @Component({
   selector: 'app-mainpage',
@@ -6,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mainpage.component.scss']
 })
 export class MainpageComponent implements OnInit {
+  @Input('title') pageName: string;
 
-  constructor() { }
+  constructor(private title: TitleService, private langService: TranslationService) { 
+    title.setTitle(langService.pageTitle + ' - ' + langService.EN.mainpageTitle);
+  }
 
   ngOnInit(): void {
   }

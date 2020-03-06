@@ -3,6 +3,7 @@ import { IMenu } from 'src/IMenu';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { ConstantsService } from '../constants.service';
 import { TranslationService } from '../translation.service';
+import { TitleService } from '../title.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,27 +12,25 @@ import { TranslationService } from '../translation.service';
 })
 export class NavbarComponent implements OnInit {
   Consts: ConstantsService;
+  LangContent: TranslationService;
+  Title: TitleService;
   Menu: IMenu[] = [
     {
       href: '/',
-      name: 'Home',
-      title: 'Go Home'
+      name: 'Home'
     },
     {
       href: '/',
-      name: 'Browse',
-      title: 'Browse places!'
+      name: 'Browse'
     },
     {
       href: '#',
       name: 'Change Theme',
-      title: 'Change page color scheme',
       dropdown: []
     },
     {
       href: '#',
       name: 'User',
-      title: 'User Area',
       icon: faUser
     }
   ];
@@ -72,14 +71,20 @@ export class NavbarComponent implements OnInit {
     elLinks.classList.toggle('active');
   }
 
-  constructor(private consts: ConstantsService) {
+  public setTitle( newTitle: string) {
+    this.title.setTitle("fuck");
+  }
+
+  constructor(private consts: ConstantsService, private langContent: TranslationService, private title: TitleService) {
     let i = 0;
     this.Consts = consts;
+    this.LangContent = langContent;
     consts.themeColors.forEach(element => {
       this.Menu[2].dropdown.push({ name: element.name, id: i });
       i++;
     });
   }
+  
 
   ngOnInit(): void {}
 

@@ -11,7 +11,7 @@
         <li *ngFor="let item of Menu">
           
           <div *ngIf="item.dropdown; else hasntDropdown" class="dropdown">
-            <a title="Change color scheme" href="" (click)="toggleDropdown($event)">
+            <a href="" (click)="toggleDropdown($event)">
               Change Theme <fa-icon class="dropdown-arrow-down" [icon]="['fas', 'chevron-down']"></fa-icon>
             </a>
             <div class="dropdown-content">
@@ -19,7 +19,7 @@
             </div>
           </div>
           <ng-template #hasntDropdown>
-            <a *ngIf="!item.icon; else withIcon" title="{{item.title}}" href="" [routerLink]="[item.href]" [innerHTML]="item.name"></a>
+            <a *ngIf="!item.icon; else withIcon" href="" [routerLink]="[item.href]" [innerHTML]="item.name"></a>
             <ng-template #withIcon>
               <a title="{{item.title}}" href="">
                 <fa-icon [icon]="item.icon"></fa-icon>
