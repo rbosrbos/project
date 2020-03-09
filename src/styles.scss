@@ -1,6 +1,7 @@
 @import '~normalize.css';
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Eczar&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
 @import 'style.vars.scss';
 
 html {
@@ -10,25 +11,173 @@ html {
 
 body {
   background-image: url('https://external-preview.redd.it/0Xav8KGjl0kJE6lJBAlpV2c-wKWGdjzw1WaF1RX5xxk.jpg?auto=webp&s=fdbdadd45c7a34d73a0b71879448b5b897821bb9');
+  background-attachment: fixed;
 
   a {
     text-decoration: none;
   }
 }
 
-.root-div {
-  height: 100%;
+button {
+  cursor: pointer;
+  animation: bouncy 5s infinite linear;
+  position: relative;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #fff;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #fff;
+  text-align: center;
+  transition: all 0.2s;
+
+  &:hover {
+    color: #000;
+    background-color: #fff;
+  }
 }
 
-.ml-1 {
-  margin-left: 0.5rem;
+.card {
+  margin: 1em 2em;
+  -webkit-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+  width: 400px;
+
+  img {
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+    margin-bottom: 1rem;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
-.mr-1 {
-  margin-right: 0.5rem;
+.title {
+  width: 100%;
+  font-family: Lobster, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2em;
+  filter: brightness(1.5);
+}
+
+@keyframes bouncy {
+  0% { top: 0; }
+  40% { top: 0; }
+  43% { top: -0.9em; }
+  46% { top: 0; }
+  48% { top: -0.4em; }
+  50% { top: 0; }
+  100% { top: 0; }
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.box-shadow {
+  -webkit-box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.75);
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 5px #000;
+}
+
+.black {
+  color: black;
+}
+
+.white {
+  color: white;
+}
+
+.color1 {
+  color: var(--color1);
+}
+
+.color2 {
+  color: var(--color2);
+}
+
+.color3 {
+  color: var(--color3);
+}
+
+.color4 {
+  color: var(--color4);
+}
+
+.color5 {
+  color: var(--color5);
+}
+
+.color0 {
+  color: var(--color0);
+}
+
+.center {
+  text-align: center;
+}
+
+.bg-1 {
+  background-color: var(--color1);
+}
+
+.bg-2 {
+  background-color: var(--color2);
+}
+
+.bg-3 {
+  background-color: var(--color3);
+}
+
+.bg-4 {
+  background-color: var(--color4);
+}
+
+.bg-5 {
+  background-color: var(--color5);
+}
+
+.bg-0 {
+  background-color: var(--color0);
+}
+
+.rounded {
+  border-radius: 0.2rem;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.p-2 {
+  padding: 2rem;
 }
 
 .my-1 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.my-2 {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+.flex {
+  display: flex;
+  margin: 15rem auto auto auto;
 }

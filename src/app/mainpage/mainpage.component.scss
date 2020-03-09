@@ -1,11 +1,38 @@
-.mainpage {
+@import '../../style.vars.scss';
+
+.header {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: var(--color1);
-  min-height: 20vh;
+  min-height: 15em;
   padding: 5em;
   text-align: center;
+
+  .header-image {
+    width: 30%;
+    height: 100%;
+    align-items: center;
+    margin-right: 5em;
+
+    img {
+      width: 100%;
+      filter: invert(80%);
+    }
+  }
+
+  .header-description {
+    width: 80%;
+  }
+}
+
+#MostVisited {
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@media (max-width: $desktop) {
+  .header-image {
+    display: none;
+  }
 }

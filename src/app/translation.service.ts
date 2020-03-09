@@ -11,19 +11,22 @@ export class TranslationService {
     home: 'Home',
     browse: 'Browse',
     changeTheme: 'Change Theme',
-    changeThemeOptions:[
-      "Cream (Default)",
-      "Blueish",
-      "Purpleish",
-      "QuickSilver"
+    changeThemeOptions: [
+      'Cream',
+      'Greenish',
+      'Marine',
+      'QuickSilver',
+      'The Best (Default)'
     ],
+    goBack: 'Go back',
+    navbarSunrise: 'Sunrise',
+    navbarSunset: 'Sunset',
     mainpageTitle: 'Home',
     mainpageHeader: 'Welcome to LusoNature!',
     mainpageContent:
       'Here you\'ll find the best Portuguese green spots for your freetime. You can choose and plan everything thanks ' +
       'to our rating system by our users. Go on, take a look! And please respect the NATURE! ;)',
-    navbarSunrise: 'Sunrise',
-    navbarSunset: 'Sunset',
+    mainpageMostvisited: 'Top viewed places:',
     weatherforecastTitle: 'Weather Forecast'
   };
   PT = {
@@ -31,18 +34,21 @@ export class TranslationService {
     browse: 'Navegar',
     changeTheme: 'Mudar Tema',
     changeThemeOptions: [
-      "Creme (Por defeito)",
-      "Azulado",
-      "Arroxado",
-      "Prateado"
+      'Creme',
+      'Esverdeado',
+      'Marinho',
+      'Prateado',
+      'O melhor (por defeito'
     ],
+    goBack: 'Voltar',
+    navbarSunrise: 'Nascer do sol',
+    navbarSunset: 'Pôr do sol',
     mainpageTitle: 'LusoNature - Início',
     mainpageHeader: 'Bem vindo à LusoNature!',
     mainpageContent:
       'Aqui poderá encontrar os melhores locais naturais do nosso país. Pode escolher e planear tudo graças ao nosso ' +
       'sistema de rating. Dê uma espreitadela! E por favor, respeite a Natureza! ;)',
-    navbarSunrise: 'Nascer do sol',
-    navbarSunset: 'Pôr do sol',
+    mainpageMostvisited: 'Locais mais visitados:',
     weatherforecastTitle: 'Previsão Meteorológica'
   };
   changeLang(lang: string) {

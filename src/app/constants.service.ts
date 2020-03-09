@@ -6,20 +6,24 @@ import { Injectable } from '@angular/core';
 export class ConstantsService {
   themeColors = [
     {
-      name: 'Cream (Default)',
-      colors: ['#E6EBE0', '#ED6B86', '#463239', '#A7C4B5', '#FAB3A9', 'rgba(144,144,144,1)', 'rgba(128,128,128,1)']
+      name: 'Cream',
+      colors: ['#8CFBDE', '#70A9A1', '#a7c4b5', '#ed6b86', '#463239']
     },
     {
-      name: 'Blueish',
-      colors: ['#38AECC', '#183446', '#463239', '#046E8F', '#046E8F', 'rgba(0,0,0,0.3)', 'rgba(0,0,0,0.3)']
+      name: 'Greenish',
+      colors: ['#F5FDC6', '#F5C396', '#D0B17A', '#41521F', '#A89F68']
     },
     {
-      name: 'Purpleish',
-      colors: ['#8A95A5', '#474056', '#463239', '#757083', '#F3D9DC', 'rgba(0,0,0,0.3)', 'rgba(0,0,0,0.3)']
+      name: 'Marine',
+      colors: ['#90FFDC', '#87CBAC', '#8DE4FF', '#8AC4FF', '#7A7978']
     },
     {
       name: 'Quicksilver',
-      colors: ['#F8F8F8', '#A1A6B4', '#463239', '#B4D2E7', '#94C5CC', 'rgba(0,0,0,0.3)', 'rgba(0,0,0,0.3)']
+      colors: ['#F8F8F8', '#B4D2E7', '#94C5CC', '#A1A6B4', '#463239']
+    },
+    {
+      name: 'The Best',
+      colors: ['#0fff95', '#70a9a1', '#8cfbde', '#103900', '#06ba63']
     }
   ];
 

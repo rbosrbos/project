@@ -26,6 +26,7 @@ export class NavbarComponent implements OnInit {
   }
   @HostListener('document:click', ['$event'])
   clickout(e) {
+    const elNav = document.querySelector('nav');
     let isDropdownMenu = false;
     let isDropdownContent = false;
     let isBurger = false;
@@ -41,7 +42,10 @@ export class NavbarComponent implements OnInit {
     if (!isDropdownMenu || isDropdownContent) {
       document.querySelector('.dropdown-content').classList.remove('open');
     }
-    if (!isBurger && !isDropdownMenu && !isDropdownContent) { document.querySelector('.menu-links').classList.remove('active'); }
+    if (!isBurger && !isDropdownMenu && !isDropdownContent) {
+      document.querySelector('.menu-links').classList.remove('active');
+      elNav.style.overflow = '';
+    }
   }
 
   toggleDropdown(e) {
@@ -51,14 +55,18 @@ export class NavbarComponent implements OnInit {
   toggleMenu() {
     const elBurger = document.querySelector('.burger');
     const elLinks = document.querySelector('.menu-links');
+    const elNav = document.querySelector('nav');
     elBurger.classList.toggle('active');
     elLinks.classList.toggle('active');
+    if (elNav.style.overflow === 'visible') { 
+      elNav.style.overflow = '';
+    } else { elNav.style.overflow = 'visible'; }
   }
 
   changeLang(lang) {
-    //this.Language = this.LangContent[lang];
+    // this.Language = this.LangContent[lang];
     this.LangContent.changeLang(lang);
-    let actual = this.LangContent.Actual;
+    const actual = this.LangContent.Actual;
     console.log(actual);
     this.Language = this.LangContent[actual];
     this.makeMenu();
@@ -91,15 +99,23 @@ export class NavbarComponent implements OnInit {
       i++;
     });
   }
-
+  scroll = (event): void => {
+    if (window.pageYOffset > 45) {
+      document.querySelector('nav').classList.add('opaque');
+    } else {
+      document.querySelector('nav').classList.remove('opaque');
+    }
+  }
   constructor(private consts: ConstantsService, private langContent: TranslationService, private title: TitleService) {
     this.Consts = consts;
     this.LangContent = langContent;
-    //this.LangContent.changeLang("EN");
+    // this.LangContent.changeLang('EN');
     this.Language = this.LangContent.EN;
     this.makeMenu();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.addEventListener('scroll', this.scroll, true);
+  }
 
 }
