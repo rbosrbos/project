@@ -1,6 +1,7 @@
 export interface ILanguage {
   home: string;
   browse: string;
+  contact: string;
   changeTheme: string;
   changeThemeOptions: string[];
   goBack: string;

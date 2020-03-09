@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { IMenu } from 'src/IMenu';
+import { Observable, Subject } from 'rxjs';
 import { ILanguage } from 'src/ILanguage';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { ConstantsService } from '../constants.service';
@@ -15,7 +16,7 @@ import { TitleService } from '../title.service';
 export class NavbarComponent implements OnInit {
   Consts: ConstantsService;
   LangContent: TranslationService;
-  Language: ILanguage;
+  Language: Subject<ILanguage>;
   Title: TitleService;
   Menu: IMenu[];
   changeTheme(e, i) {
@@ -63,12 +64,10 @@ export class NavbarComponent implements OnInit {
     } else { elNav.style.overflow = 'visible'; }
   }
 
-  changeLang(lang) {
-    // this.Language = this.LangContent[lang];
-    this.LangContent.changeLang(lang);
-    const actual = this.LangContent.Actual;
-    console.log(actual);
-    this.Language = this.LangContent[actual];
+  changeLang(lang,e) {
+    e.preventDefault();
+    // this.LangContent.changeLang(lang);
+    this.Language = this.LangContent[this.LangContent.Actual];
     this.makeMenu();
   }
 
@@ -79,7 +78,7 @@ export class NavbarComponent implements OnInit {
         name: this.Language.home
       },
       {
-        href: '/',
+        href: '/browse',
         name: this.Language.browse
       },
       {
@@ -88,10 +87,14 @@ export class NavbarComponent implements OnInit {
         dropdown: []
       },
       {
-        href: '#',
-        name: 'User',
-        icon: faUser
+        href: '/contact',
+        name: this.Language.contact
       }
+      // {
+      //   href: '#',
+      //   name: 'User',
+      //   icon: faUser
+      // }
     ];
     let i = 0;
     this.Consts.themeColors.forEach(element => {
@@ -110,7 +113,7 @@ export class NavbarComponent implements OnInit {
     this.Consts = consts;
     this.LangContent = langContent;
     // this.LangContent.changeLang('EN');
-    this.Language = this.LangContent.EN;
+    this.Language = langContent[langContent.Actual];
     this.makeMenu();
   }
 

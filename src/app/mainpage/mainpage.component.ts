@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TitleService } from '../title.service';
 import { TranslationService } from '../translation.service';
 import { ILanguage } from '../../ILanguage';
+import { Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-mainpage',
@@ -11,7 +13,7 @@ import { ILanguage } from '../../ILanguage';
 
 
 export class MainpageComponent implements OnInit {
-  Language: ILanguage;
+  Language: Subject<ILanguage>;
   showBG() {
     const x = document.querySelectorAll('div');
     x.forEach(element => {console.log(element.style.zIndex);
@@ -22,11 +24,12 @@ export class MainpageComponent implements OnInit {
     });},2000)
   }
   constructor(private title: TitleService, private langService: TranslationService) {
-    this.Language = langService[langService.Actual];
-    console.log(this.Language);
     title.setTitle(langService.pageTitle + ' - ' + langService.EN.mainpageTitle);
+    this.Language = langService.language;
+    this.Language.subscribe(value => {
+      console.log(value);
+    });
   }
-
   ngOnInit(): void {
   }
 

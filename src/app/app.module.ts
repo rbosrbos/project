@@ -14,6 +14,8 @@ import { ConstantsService } from './constants.service';
 import { GetlocationService } from './getlocation.service';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { TranslationService } from './translation.service';
+import { BrowseComponent } from './browse/browse.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { TranslationService } from './translation.service';
     NavbarComponent,
     WeatherComponent,
     WeatherforecastComponent,
-    MainpageComponent
+    MainpageComponent,
+    BrowseComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

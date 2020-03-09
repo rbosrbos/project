@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ConstantsService } from './constants.service';
+import { Observable, Subject } from 'rxjs';
+import { ILanguage } from 'src/ILanguage';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class TranslationService {
   EN = {
     home: 'Home',
     browse: 'Browse',
+    contact: 'Contact us',
     changeTheme: 'Change Theme',
     changeThemeOptions: [
       'Cream',
@@ -32,6 +34,7 @@ export class TranslationService {
   PT = {
     home: 'Inicio',
     browse: 'Navegar',
+    contact: 'Contacte-nos',
     changeTheme: 'Mudar Tema',
     changeThemeOptions: [
       'Creme',
@@ -54,5 +57,11 @@ export class TranslationService {
   changeLang(lang: string) {
     this.Actual = lang;
   }
-  constructor() {}
+  private subject = new Subject<any>();
+  getLanguage(): Observable<any> {
+    
+    return this.subject.asObservable();
+}
+    constructor()  {this.subject.next(this[this.Actual]);
+    }
 }
