@@ -19,7 +19,6 @@ export class BrowseComponent implements OnInit {
         })
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

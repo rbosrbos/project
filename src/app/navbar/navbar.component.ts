@@ -100,6 +100,8 @@ export class NavbarComponent implements OnInit {
     });
   }
   scroll = (event): void => {
+    document.querySelector('nav').style.overflow = '';
+    document.querySelector('.menu-links').classList.remove('active');
     if (window.pageYOffset > 45) {
       document.querySelector('nav').classList.add('opaque');
     } else {

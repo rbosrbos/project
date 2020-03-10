@@ -56,7 +56,7 @@ button {
   }
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
   }
 }
 
@@ -180,4 +180,12 @@ button {
 .flex {
   display: flex;
   margin: 15rem auto auto auto;
+}
+
+// ===================================== Media Queries =====================================
+
+@media (max-width: $tablet) {
+  .title {
+    font-size: 1.2em;
+  }
 }
