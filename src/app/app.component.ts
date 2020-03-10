@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     }
   }
   constructor(private langService: TranslationService) {
-    this.Language = langService[langService.Actual];
+    this.Language = langService[langService.language];
   }
   ngOnInit(): void {
     window.addEventListener('scroll', this.scroll, true);

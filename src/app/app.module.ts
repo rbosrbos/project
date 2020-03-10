@@ -36,8 +36,7 @@ import { ContactComponent } from './contact/contact.component';
   providers: [
     Title,
     ConstantsService,
-    GetlocationService,
-    TranslationService
+    GetlocationService
   ],
   bootstrap: [AppComponent]
 })

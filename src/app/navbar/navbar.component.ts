@@ -1,9 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { IMenu } from 'src/IMenu';
-import { Observable, Subject } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { ILanguage } from 'src/ILanguage';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { ConstantsService } from '../constants.service';
 import { TranslationService } from '../translation.service';
 import { TitleService } from '../title.service';
@@ -15,8 +13,8 @@ import { TitleService } from '../title.service';
 })
 export class NavbarComponent implements OnInit {
   Consts: ConstantsService;
-  LangContent: TranslationService;
-  Language: Subject<ILanguage>;
+  Language: ILanguage;
+  subscription: Subscription;
   Title: TitleService;
   Menu: IMenu[];
   changeTheme(e, i) {
@@ -66,8 +64,7 @@ export class NavbarComponent implements OnInit {
 
   changeLang(lang,e) {
     e.preventDefault();
-    // this.LangContent.changeLang(lang);
-    this.Language = this.LangContent[this.LangContent.Actual];
+    this.langService.changeLang(lang);
     this.makeMenu();
   }
 
@@ -109,12 +106,14 @@ export class NavbarComponent implements OnInit {
       document.querySelector('nav').classList.remove('opaque');
     }
   }
-  constructor(private consts: ConstantsService, private langContent: TranslationService, private title: TitleService) {
+  constructor(private consts: ConstantsService, private langService: TranslationService, private title: TitleService) {
     this.Consts = consts;
-    this.LangContent = langContent;
-    // this.LangContent.changeLang('EN');
-    this.Language = langContent[langContent.Actual];
-    this.makeMenu();
+    this.Language = langService[langService.language];
+        this.subscription = langService.languageChange.subscribe((value) => {
+            this.Language = value;
+        })
+        this.makeMenu();
+        console.log(this.Language.home);
   }
 
   ngOnInit(): void {

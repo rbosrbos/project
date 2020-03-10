@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 import { ILanguage } from 'src/ILanguage';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TranslationService {
-  Actual = 'EN';
+  languageChange: Subject<ILanguage> = new Subject<ILanguage>();
+  language = 'EN';
   pageTitle = 'LusoNature';
   EN = {
     home: 'Home',
@@ -55,13 +56,8 @@ export class TranslationService {
     weatherforecastTitle: 'Previsão Meteorológica'
   };
   changeLang(lang: string) {
-    this.Actual = lang;
+    this.language = lang;
+    this.languageChange.next(this[lang]);
   }
-  private subject = new Subject<any>();
-  getLanguage(): Observable<any> {
-    
-    return this.subject.asObservable();
 }
-    constructor()  {this.subject.next(this[this.Actual]);
-    }
-}
+
