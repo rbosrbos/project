@@ -46,22 +46,21 @@ select::-ms-expand {
 .select {
   position: relative;
   display: flex;
-  width: 20em;
-  height: 3em;
+  width: 10em;
+  height: 2em;
   line-height: 3;
-  background: #2c3e50;
   overflow: hidden;
   border-radius: 0.25em;
-  margin: auto;
+  margin: 1em auto;
 }
 
 .select::after {
   content: '\25BC';
   position: absolute;
-  top: 0;
+  top: -0.4em;
   right: 0;
-  padding: 0 1em;
-  background: #34495e;
+  padding: 0 0.5em;
+  background: var(--color0);
   cursor: pointer;
   pointer-events: none;
   -webkit-transition: 0.25s all ease;
@@ -70,7 +69,7 @@ select::-ms-expand {
 }
 
 .select:hover::after {
-  color: #f39c12;
+  color: var(--color4);
 }
 
 @media (max-width: $tablet) {

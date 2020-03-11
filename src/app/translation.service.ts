@@ -31,7 +31,6 @@ export class TranslationService {
     goBack: 'Go back',
     navbarSunrise: 'Sunrise',
     navbarSunset: 'Sunset',
-    mainpageTitle: 'Home',
     mainpageHeader: 'Welcome to LusoNature!',
     mainpageContent:
       'Here you\'ll find the best Portuguese green spots for your freetime. You can choose and plan everything thanks ' +
@@ -61,7 +60,6 @@ export class TranslationService {
     goBack: 'Voltar',
     navbarSunrise: 'Nascer do sol',
     navbarSunset: 'Pôr do sol',
-    mainpageTitle: 'LusoNature - Início',
     mainpageHeader: 'Bem vindo à LusoNature!',
     mainpageContent:
       'Aqui poderá encontrar os melhores locais naturais do nosso país. Pode escolher e planear tudo graças ao nosso ' +
@@ -74,4 +72,3 @@ export class TranslationService {
     this.languageChange.next(this[lang]);
   }
 }
-

@@ -1,3 +1,4 @@
 <div class="title color1 center text-shadow">
-  <h1>Weather Forecast</h1>
+  <h1>{{ Language.weatherforecastTitle }}</h1>
+  <div *ngFor="let item of weatherData">{{item.dt}}</div>
 </div>

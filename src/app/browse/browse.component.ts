@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ILanguage } from 'src/ILanguage';
 import { TranslationService } from '../translation.service';
-import { Subscription } from 'rxjs';
+import { Title } from '@angular/platform-browser';
+import { Subscription, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-browse',
@@ -10,13 +11,19 @@ import { Subscription } from 'rxjs';
 })
 export class BrowseComponent implements OnInit {
   Language: ILanguage;
-  subscription: Subscription;
+  LangSubscription: Subscription;
+  Title: Subject<string> = new Subject<string>();
 
-  constructor(private langService: TranslationService) { 
+  constructor(private TitleService: Title, private langService: TranslationService) {
     this.Language = langService[langService.language];
-        this.subscription = langService.languageChange.subscribe((value) => {
-            this.Language = value;
-        })
+    this.Title.subscribe((data)=>{
+      TitleService.setTitle(langService.pageTitle + ' - ' + data);
+    });
+    this.Title.next(this.Language.browse.name);
+    this.LangSubscription = langService.languageChange.subscribe((value) => {
+        this.Language = value;
+        this.Title.next(value.browse.name);
+    });
   }
 
   ngOnInit(): void {}

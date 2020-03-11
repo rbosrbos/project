@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { RootObject } from '../IWeather';
 import { HttpClient } from '@angular/common/http';
 import { GetlocationService } from '../getlocation.service';
+import { ILanguage } from 'src/ILanguage';
+import { Subscription } from 'rxjs';
+import { TranslationService } from '../translation.service';
 
 @Component({
   selector: 'app-weather',
@@ -11,7 +14,14 @@ import { GetlocationService } from '../getlocation.service';
 export class WeatherComponent implements OnInit {
   WeatherData: RootObject;
   Location: GetlocationService;
-  constructor(private location: GetlocationService, http: HttpClient) {
+  Language: ILanguage;
+  LangSubscription: Subscription;
+
+  constructor(private location: GetlocationService, http: HttpClient, private langService: TranslationService) {
+    this.Language = langService[langService.language];
+    this.LangSubscription = langService.languageChange.subscribe((value) => {
+        this.Language = value;
+    });
     this.Location = location;
     this.location.getLocation().then(
       coords => {
