@@ -11,7 +11,14 @@ export class TranslationService {
   pageTitle = 'LusoNature';
   EN = {
     home: 'Home',
-    browse: 'Browse',
+    browse: {
+      name: 'Browse',
+      categories: [
+        'Beaches',
+        'Forests'
+      ]
+    },
+    categories: 'Categories',
     contact: 'Contact us',
     changeTheme: 'Change Theme',
     changeThemeOptions: [
@@ -34,7 +41,14 @@ export class TranslationService {
   };
   PT = {
     home: 'Inicio',
-    browse: 'Navegar',
+    browse: {
+      name: 'Navegar',
+      categories: [
+        'Praias',
+        'Florestas'
+      ]
+    },
+    categories: 'Categorias',
     contact: 'Contacte-nos',
     changeTheme: 'Mudar Tema',
     changeThemeOptions: [

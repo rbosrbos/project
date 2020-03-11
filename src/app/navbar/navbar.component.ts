@@ -76,7 +76,7 @@ export class NavbarComponent implements OnInit {
       },
       {
         href: '/browse',
-        name: this.Language.browse
+        name: this.Language.browse.name
       },
       {
         href: '#',
@@ -115,7 +115,6 @@ export class NavbarComponent implements OnInit {
             this.Language = value;
         })
         this.makeMenu();
-        console.log(this.Language.home);
   }
 
   ngOnInit(): void {
