@@ -1,76 +1,29 @@
 <div class="title">
   <h1 class="color1 center text-shadow">{{ Language.browse.name }}</h1>
 </div>
-<div class="filters">{{ Language.categories }}:
+<div class="filters">
+  <div class="top"><label for="categories">{{ Language.categories }}</label></div>
+  <div class="top"><label for="categories">{{ Language.region }}</label></div>
+</div>
+<div class="filters">
+  <div class="select">
+    <select name="categories" id="">
+      <option *ngFor="let item of Language.browse.categories" value="">{{ item }}</option>
+    </select>
+  </div>
   <div class="select">
     <select name="" id="">
-      <option *ngFor="let item of Language.browse.categories" value="">{{ item }}</option>
+      <option *ngFor="let item of Language.browse.region" value="">{{ item }}</option>
     </select>
   </div>
 </div>
 <div class="masonry">
-  <div class="card color1 center rounded p-2 overlay">
-    <h3 class="text-shadow white center">Local 1</h3>
-    <img
-      src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/8a7de49888dce87754b68582d0d4dc1afc6559e0/big-264bb2742bf117bbdb1c6c41a229f6c3.jpg"
-      alt="">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsum odit explicabo itaque sequi perspiciatis vero
-    quam distinctio sit in. Eum, adipisci culpa? Dolore odit facere fugit impedit autem tenetur.
+  <div *ngFor="let item of Cards" class="card color1 center rounded p-2 overlay">
+    <h3 class="text-shadow white center">{{ item.title }}</h3>
+    <img src="{{ item.img }}" alt="">
+    <div>{{ item.description }}</div>
+    <div class="type">{{ Language.browse.categories[1] }}</div>
+    <div class="type region">{{ Language.browse.region[2] }}</div>
   </div>
-  <div class="card color1 center rounded p-2 overlay">
-    <h3 class="text-shadow white center">Local 1</h3>
-    <img
-      src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/8a7de49888dce87754b68582d0d4dc1afc6559e0/big-264bb2742bf117bbdb1c6c41a229f6c3.jpg"
-      alt="">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsum odit explicabo itaque sequi perspiciatis vero
-    quam distinctio sit in. Eum, adipisci culpa? Dolore odit facere fugit impedit autem tenetur.
-  </div>
-  <div class="card color1 center rounded p-2 overlay">
-    <h3 class="text-shadow white center">Local 1</h3>
-    <img
-      src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/8a7de49888dce87754b68582d0d4dc1afc6559e0/big-264bb2742bf117bbdb1c6c41a229f6c3.jpg"
-      alt="">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsum odit explicabo itaque sequi perspiciatis vero
-    quam distinctio sit in. Eum, adipisci culpa? Dolore odit facere fugit impedit autem tenetur.
-  </div>
-  <div class="card color1 center rounded p-2 overlay">
-    <h3 class="text-shadow white center">Local 1</h3>
-    <img
-      src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/8a7de49888dce87754b68582d0d4dc1afc6559e0/big-264bb2742bf117bbdb1c6c41a229f6c3.jpg"
-      alt="">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsum odit explicabo itaque sequi perspiciatis vero
-    quam distinctio sit in. Eum, adipisci culpa? Dolore odit facere fugit impedit autem tenetur.
-  </div>
-  <div class="card color1 center rounded p-2 overlay">
-    <h3 class="text-shadow white center">Local 1</h3>
-    <img
-      src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/8a7de49888dce87754b68582d0d4dc1afc6559e0/big-264bb2742bf117bbdb1c6c41a229f6c3.jpg"
-      alt="">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsum odit explicabo itaque sequi perspiciatis vero
-    quam distinctio sit in. Eum, adipisci culpa? Dolore odit facere fugit impedit autem tenetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi soluta odit quibusdam eaque aperiam culpa ipsam, aspernatur dolorem id est dolore, recusandae porro. Earum corporis, et laborum aliquid delectus non.
-  </div>
-  <div class="card color1 center rounded p-2 overlay">
-    <h3 class="text-shadow white center">Local 1</h3>
-    <img
-      src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/8a7de49888dce87754b68582d0d4dc1afc6559e0/big-264bb2742bf117bbdb1c6c41a229f6c3.jpg"
-      alt="">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsum odit explicabo itaque sequi perspiciatis vero
-    quam distinctio sit in. Eum, adipisci culpa? Dolore odit facere fugit impedit autem tenetur.
-  </div>
-  <div class="card color1 center rounded p-2 overlay">
-    <h3 class="text-shadow white center">Local 1</h3>
-    <img
-      src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/8a7de49888dce87754b68582d0d4dc1afc6559e0/big-264bb2742bf117bbdb1c6c41a229f6c3.jpg"
-      alt="">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsum odit explicabo itaque sequi perspiciatis vero
-    quam distinctio sit in. Eum, adipisci culpa? Dolore odit facere fugit impedit autem tenetur.
-  </div>
-  <div class="card color1 center rounded p-2 overlay">
-    <h3 class="text-shadow white center">Local 1</h3>
-    <img
-      src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/8a7de49888dce87754b68582d0d4dc1afc6559e0/big-264bb2742bf117bbdb1c6c41a229f6c3.jpg"
-      alt="">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsum odit explicabo itaque sequi perspiciatis vero
-    quam distinctio sit in. Eum, adipisci culpa? Dolore odit facere fugit impedit autem tenetur.
-  </div>
+
 </div>

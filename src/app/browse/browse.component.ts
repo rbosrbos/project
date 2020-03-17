@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ILanguage } from 'src/ILanguage';
+import { ILanguage } from 'src/app/ILanguage';
 import { TranslationService } from '../translation.service';
 import { Title } from '@angular/platform-browser';
 import { Subscription, Subject } from 'rxjs';
+import { ICard } from '../ICard';
 
 @Component({
   selector: 'app-browse',
@@ -13,10 +14,72 @@ export class BrowseComponent implements OnInit {
   Language: ILanguage;
   LangSubscription: Subscription;
   Title: Subject<string> = new Subject<string>();
+  Cards: ICard[]
+  = [
+      {
+        title: 'Parque Eduardo VII',
+        img: 'https://handluggageonly.co.uk/wp-content/uploads/2017/02/Parque-Eduardo-VII.jpg',
+        description: 'The central park in Lisbon is known for its rolling hills and undulating lawns. As you wander around here, ' +
+        'look back over the downtown area of the city for views that stretch as far as the river.',
+        type: 'Park',
+        region: 'Center'
+      },
+      {
+        title: 'Ponta da Piedade',
+        img: 'https://i1.wp.com/gringajourneys.com/wp-content/uploads/2017/06/6137529974_970cefe89e_o.jpg?ssl=1',
+        description: 'Although Ponta da Piedade is typically filled with tourists, I still recommend checking it out. I regret that' +
+        ' I didn’t spend more time there! I knew I wanted to make a boat trip during my time in the Algarve but ended up doing this ' +
+        'at Benagil beach to see the famous Benagil Cave (side note: it was a little expensive but worth snapping a photo here). In my ' +
+        'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
+        'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',
+        type: 'Beach',
+        region: 'Center'
+      },
+      {
+        title: 'Ponta da Piedade',
+        img: 'https://i1.wp.com/gringajourneys.com/wp-content/uploads/2017/06/6137529974_970cefe89e_o.jpg?ssl=1',
+        description: 'Although Ponta da Piedade is typically filled with tourists, I still recommend checking it out. I regret that' +
+        ' I didn’t spend more time there! I knew I wanted to make a boat trip during my time in the Algarve but ended up doing this ' +
+        'at Benagil beach to see the famous Benagil Cave (side note: it was a little expensive but worth snapping a photo here). In my ' +
+        'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
+        'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',        type: 'Beach',
+        region: 'Center'
+      },
+      {
+        title: 'Ponta da Piedade',
+        img: 'https://i1.wp.com/gringajourneys.com/wp-content/uploads/2017/06/6137529974_970cefe89e_o.jpg?ssl=1',
+        description: 'Although Ponta da Piedade is typically filled with tourists, I still recommend checking it out. I regret that' +
+        ' I didn’t spend more time there! I knew I wanted to make a boat trip during my time in the Algarve but ended up doing this ' +
+        'at Benagil beach to see the famous Benagil Cave (side note: it was a little expensive but worth snapping a photo here). In my ' +
+        'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
+        'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',        type: 'Beach',
+        region: 'Center'
+      },
+      {
+        title: 'Ponta da Piedade',
+        img: 'https://i1.wp.com/gringajourneys.com/wp-content/uploads/2017/06/6137529974_970cefe89e_o.jpg?ssl=1',
+        description: 'Although Ponta da Piedade is typically filled with tourists, I still recommend checking it out. I regret that' +
+        ' I didn’t spend more time there! I knew I wanted to make a boat trip during my time in the Algarve but ended up doing this ' +
+        'at Benagil beach to see the famous Benagil Cave (side note: it was a little expensive but worth snapping a photo here). In my ' +
+        'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
+        'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',        type: 'Beach',
+        region: 'Center'
+      },
+      {
+        title: 'Ponta da Piedade',
+        img: 'https://i1.wp.com/gringajourneys.com/wp-content/uploads/2017/06/6137529974_970cefe89e_o.jpg?ssl=1',
+        description: 'Although Ponta da Piedade is typically filled with tourists, I still recommend checking it out. I regret that' +
+        ' I didn’t spend more time there! I knew I wanted to make a boat trip during my time in the Algarve but ended up doing this ' +
+        'at Benagil beach to see the famous Benagil Cave (side note: it was a little expensive but worth snapping a photo here). In my ' +
+        'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
+        'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',        type: 'Beach',
+        region: 'Center'
+      }
+    ];
 
   constructor(private TitleService: Title, private langService: TranslationService) {
     this.Language = langService[langService.language];
-    this.Title.subscribe((data)=>{
+    this.Title.subscribe((data) => {
       TitleService.setTitle(langService.pageTitle + ' - ' + data);
     });
     this.Title.next(this.Language.browse.name);

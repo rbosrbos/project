@@ -10,8 +10,9 @@ html {
 }
 
 body {
-  background-image: url('https://external-preview.redd.it/0Xav8KGjl0kJE6lJBAlpV2c-wKWGdjzw1WaF1RX5xxk.jpg?auto=webp&s=fdbdadd45c7a34d73a0b71879448b5b897821bb9');
+  background-image: url('assets/images/bgs/main.jpg');
   background-attachment: fixed;
+  background-position: center top;
 
   a {
     text-decoration: none;
@@ -184,7 +185,11 @@ button {
 
 // ===================================== Media Queries =====================================
 
-@media (max-width: $tablet) {
+@media (max-width: $mobile) {
+  body {
+    background-position: center -90px;
+  }
+
   .title {
     font-size: 1.2em;
   }

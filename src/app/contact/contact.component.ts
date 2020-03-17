@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ILanguage } from 'src/ILanguage';
+import { ILanguage } from 'src/app/ILanguage';
 import { TranslationService } from '../translation.service';
 import { Title } from '@angular/platform-browser';
 import { Subscription, Subject } from 'rxjs';
@@ -16,7 +16,7 @@ export class ContactComponent implements OnInit {
 
   constructor(private TitleService: Title, private langService: TranslationService) {
     this.Language = langService[langService.language];
-    this.Title.subscribe((data)=>{
+    this.Title.subscribe((data) => {
       TitleService.setTitle(langService.pageTitle + ' - ' + data);
     });
     this.Title.next(this.Language.contact);

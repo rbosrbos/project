@@ -4,7 +4,7 @@ import { GetlocationService } from '../getlocation.service';
 import { HttpClient } from '@angular/common/http';
 import { TranslationService } from '../translation.service';
 import { Title } from '@angular/platform-browser';
-import { ILanguage } from 'src/ILanguage';
+import { ILanguage } from 'src/app/ILanguage';
 import { Subject, Subscription } from 'rxjs';
 
 
@@ -14,7 +14,7 @@ import { Subject, Subscription } from 'rxjs';
   styleUrls: ['./weatherforecast.component.scss']
 })
 export class WeatherforecastComponent implements OnInit {
-  Language :ILanguage;
+  Language: ILanguage;
   WeatherSubject: Subject<object> = new Subject<object>();
   weatherData: object;
   Location: GetlocationService;
@@ -27,7 +27,7 @@ export class WeatherforecastComponent implements OnInit {
     private TitleService: Title,
     private langService: TranslationService) {
       this.Language = langService[langService.language];
-      this.Title.subscribe((data)=>{
+      this.Title.subscribe((data) => {
         TitleService.setTitle(langService.pageTitle + ' - ' + data);
       });
       this.Title.next(this.Language.weatherforecastTitle);

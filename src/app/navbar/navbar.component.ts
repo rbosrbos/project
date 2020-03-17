@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { IMenu } from 'src/IMenu';
+import { IMenu } from 'src/app/IMenu';
 import { Subscription } from 'rxjs';
-import { ILanguage } from 'src/ILanguage';
+import { ILanguage } from 'src/app/ILanguage';
 import { ConstantsService } from '../constants.service';
 import { TranslationService } from '../translation.service';
 import { TitleService } from '../title.service';
@@ -57,12 +57,12 @@ export class NavbarComponent implements OnInit {
     const elNav = document.querySelector('nav');
     elBurger.classList.toggle('active');
     elLinks.classList.toggle('active');
-    if (elNav.style.overflow === 'visible') { 
+    if (elNav.style.overflow === 'visible') {
       elNav.style.overflow = '';
     } else { elNav.style.overflow = 'visible'; }
   }
 
-  changeLang(lang,e) {
+  changeLang(lang, e) {
     e.preventDefault();
     this.langService.changeLang(lang);
     this.makeMenu();
@@ -111,10 +111,10 @@ export class NavbarComponent implements OnInit {
   constructor(private consts: ConstantsService, private langService: TranslationService, private title: TitleService) {
     this.Consts = consts;
     this.Language = langService[langService.language];
-        this.subscription = langService.languageChange.subscribe((value) => {
-            this.Language = value;
-        })
-        this.makeMenu();
+    this.subscription = langService.languageChange.subscribe((value) => {
+        this.Language = value;
+    });
+    this.makeMenu();
   }
 
   ngOnInit(): void {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ILanguage } from 'src/ILanguage';
+import { ILanguage } from 'src/app/ILanguage';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -14,11 +14,20 @@ export class TranslationService {
     browse: {
       name: 'Browse',
       categories: [
+        'All',
         'Beaches',
-        'Forests'
+        'Forests',
+        'Parks'
+      ],
+      region: [
+        'All',
+        'North',
+        'Center',
+        'South'
       ]
     },
     categories: 'Categories',
+    region: 'Region',
     contact: 'Contact us',
     changeTheme: 'Change Theme',
     changeThemeOptions: [
@@ -43,11 +52,20 @@ export class TranslationService {
     browse: {
       name: 'Navegar',
       categories: [
+        'Todas',
         'Praias',
-        'Florestas'
+        'Florestas',
+        'Parques'
+      ],
+      region: [
+        'Todas',
+        'Norte',
+        'Centro',
+        'Sul'
       ]
     },
     categories: 'Categorias',
+    region: 'Região',
     contact: 'Contacte-nos',
     changeTheme: 'Mudar Tema',
     changeThemeOptions: [

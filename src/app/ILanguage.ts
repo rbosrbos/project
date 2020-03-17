@@ -1,11 +1,13 @@
-export interface browse {
+export interface Browse {
   name: string;
   categories: string[];
+  region: string[];
 }
 export interface ILanguage {
   home: string;
-  browse: browse;
+  browse: Browse;
   categories: string;
+  region: string;
   contact: string;
   changeTheme: string;
   changeThemeOptions: string[];

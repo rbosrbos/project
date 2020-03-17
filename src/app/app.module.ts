@@ -13,9 +13,9 @@ import { WeatherforecastComponent } from './weatherforecast/weatherforecast.comp
 import { ConstantsService } from './constants.service';
 import { GetlocationService } from './getlocation.service';
 import { MainpageComponent } from './mainpage/mainpage.component';
-import { TranslationService } from './translation.service';
 import { BrowseComponent } from './browse/browse.component';
 import { ContactComponent } from './contact/contact.component';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { ContactComponent } from './contact/contact.component';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    LazyLoadImageModule
   ],
   providers: [
     Title,

@@ -17,14 +17,6 @@ nav {
   z-index: 20;
   overflow: hidden;
 
-  .nav-lang {
-    display: none;
-  }
-
-  .weather {
-    display: none;
-  }
-
   .burger {
     cursor: pointer;
     order: 4;
@@ -124,10 +116,11 @@ nav {
   ul {
     list-style-type: none;
     padding-left: 0;
+    margin: 0;
 
     li {
       display: inline;
-      padding-right: 0.9rem;
+      // padding-right: 0.9rem;
       font-size: 1rem;
     }
   }
@@ -154,18 +147,28 @@ nav {
       }
     }
   }
+
+  .nav-lang {
+    text-align: center;
+
+    a:first-child {
+      img {
+        margin: 0;
+      }
+    }
+  }
 }
 
 // ======================================= Media Queries ==========================================
-@media (max-width: 1023px) {
+@media (max-width: ($tablet - 1)) {
   nav {
     .menu-links {
       // display: none;
       background-color: rgba(0, 0, 0, 0.75);
-      position: absolute;
+      position: fixed;
       width: 15em;
       right: -15em;
-      top: 3.7rem;
+      top: 6.7rem;
       border-radius: 1em 0 0 1em;
       transition: right 0.5s ease-in-out;
 
@@ -228,6 +231,15 @@ nav {
         }
       }
     }
+
+    .weather {
+      justify-content: center;
+      bottom: 0;
+      display: flex;
+      left: 0;
+      position: fixed;
+      width: 100%;
+    }
   }
 }
 
@@ -275,6 +287,10 @@ nav {
         }
       }
     }
+
+    .nav-lang {
+      margin-bottom: 1rem;
+    }
   }
 }
 
@@ -284,9 +300,16 @@ nav {
   }
 
   nav {
+    ul {
+      li {
+        padding-right: 0.9rem;
+      }
+    }
+
     .menu-links {
       display: flex;
-      flex-direction: column;
+      // flex-direction: column;
+      align-items: center;
       margin-right: auto;
       order: 2;
 
