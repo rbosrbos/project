@@ -35,6 +35,9 @@ export class WeatherforecastComponent implements OnInit {
       tooltip.innerHTML = '';
     }
   }
+  showWeather(e) {
+    console.log(e.target.id);
+  }
   constructor(
     private location: GetlocationService,
     private http: HttpClient,

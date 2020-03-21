@@ -2,6 +2,10 @@
 
 .nav-spacer {
   padding-top: 3em;
+
+  @media (max-width: $desktop) {
+    padding-top: 2em;
+  }
 }
 
 nav {
