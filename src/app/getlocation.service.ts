@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
+import { Observable, Observer } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetlocationService {
-  getLocation(): Promise<string[]> {
-    return new Promise<string[]>((resolve, reject) => {
-      if (!navigator.geolocation) {
-        reject(Error('No support for geolocation'));
-        return;
-      }
-      navigator.geolocation.getCurrentPosition((position) => {
-        const longitude = position.coords.longitude;
-        const latitude = position.coords.latitude;
-        resolve([latitude.toString(), longitude.toString()]);
-      });
+
+  getLocation(): Observable<any> {
+    const doit = new Observable((observer: Observer<any>) => {
+          if (window.navigator && window.navigator.geolocation) {
+            window.navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    observer.next(position);
+                    observer.complete();
+                },
+                (error) => observer.error(error)
+            );
+        } else {
+            observer.error('Unsupported Browser');
+        }
     });
-  }
+    return doit;
+}
   constructor() { }
 }

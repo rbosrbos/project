@@ -19,4 +19,5 @@ export interface ILanguage {
   navbarSunrise: string;
   navbarSunset: string;
   weatherforecastTitle: string;
+  weatherforecastLocal: string;
 }

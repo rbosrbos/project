@@ -16,7 +16,6 @@ export class WeatherComponent implements OnInit {
   Location: GetlocationService;
   Language: ILanguage;
   LangSubscription: Subscription;
-  Fuck: string[];
 
   constructor(private location: GetlocationService, http: HttpClient, private langService: TranslationService) {
     this.Language = langService[langService.language];
@@ -24,20 +23,17 @@ export class WeatherComponent implements OnInit {
         this.Language = value;
     });
     this.Location = location;
-    this.location.getLocation().then(
-      coords => {
-        this.Fuck = coords;
-        const url = 'https://api.openweathermap.org/data/2.5/weather?appid=02575ed4ec5d28bce7934bd25e413ba1&units=metric&lat='
-        + coords[0]
+    this.Location.getLocation().subscribe(rep => {
+      const url = 'https://api.openweathermap.org/data/2.5/weather?appid=02575ed4ec5d28bce7934bd25e413ba1&units=metric&lat='
+        + rep.coords.latitude
         + '&lon='
-        + coords[1];
-        http.get<RootObject>(url)
+        + rep.coords.longitude;
+      http.get<RootObject>(url)
         .subscribe(
           result => {
             this.WeatherData = result;
           });
     });
   }
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

@@ -23,8 +23,8 @@ export class MainpageComponent implements OnInit {
         img: 'https://handluggageonly.co.uk/wp-content/uploads/2017/02/Parque-Eduardo-VII.jpg',
         description: 'The central park in Lisbon is known for its rolling hills and undulating lawns. As you wander around here, ' +
         'look back over the downtown area of the city for views that stretch as far as the river.',
-        type: 'Park',
-        region: 'Center'
+        type: 3,
+        region: 2
       },
       {
         title: 'Ponta da Piedade',
@@ -33,8 +33,9 @@ export class MainpageComponent implements OnInit {
         ' I didn’t spend more time there! I knew I wanted to make a boat trip during my time in the Algarve but ended up doing this ' +
         'at Benagil beach to see the famous Benagil Cave (side note: it was a little expensive but worth snapping a photo here). In my ' +
         'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
-        'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',        type: 'Beach',
-        region: 'Center'
+        'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',
+        type: 1,
+        region: 2
       },
       {
         title: 'Ponta da Piedade',
@@ -43,8 +44,9 @@ export class MainpageComponent implements OnInit {
         ' I didn’t spend more time there! I knew I wanted to make a boat trip during my time in the Algarve but ended up doing this ' +
         'at Benagil beach to see the famous Benagil Cave (side note: it was a little expensive but worth snapping a photo here). In my ' +
         'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
-        'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',        type: 'Beach',
-        region: 'Center'
+        'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',
+        type: 1,
+        region: 2
       }
   ];
 

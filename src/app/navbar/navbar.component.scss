@@ -163,11 +163,10 @@ nav {
 @media (max-width: ($tablet - 1)) {
   nav {
     .menu-links {
-      // display: none;
       background-color: rgba(0, 0, 0, 0.75);
       position: fixed;
-      width: 15em;
-      right: -15em;
+      width: 10em;
+      right: -10em;
       top: 6.7rem;
       border-radius: 1em 0 0 1em;
       transition: right 0.5s ease-in-out;
@@ -217,6 +216,7 @@ nav {
         -webkit-box-shadow: inset 0 7px 9px -7px #000, -0.2rem 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
         -moz-box-shadow: inset 0 7px 9px -7px #000, -0.2rem 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
         border-radius: 0 0 0 1em;
+        top: 3.7rem;
 
         ul {
           li {
@@ -233,7 +233,8 @@ nav {
     }
 
     .weather {
-      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.75);
+      justify-content: flex-end;
       bottom: 0;
       display: flex;
       left: 0;
@@ -248,7 +249,6 @@ nav {
     position: absolute;
     width: 100%;
     margin-left: -1rem;
-    top: 3.7rem;
     background-color: var(--color4);
     box-shadow: inset 0 7px 9px -7px #000;
 

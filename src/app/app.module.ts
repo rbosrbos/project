@@ -15,7 +15,7 @@ import { GetlocationService } from './getlocation.service';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { BrowseComponent } from './browse/browse.component';
 import { ContactComponent } from './contact/contact.component';
-import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    LazyLoadImageModule
+    FormsModule
   ],
   providers: [
     Title,

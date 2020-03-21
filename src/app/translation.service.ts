@@ -45,7 +45,8 @@ export class TranslationService {
       'Here you\'ll find the best Portuguese green spots for your freetime. You can choose and plan everything thanks ' +
       'to our rating system by our users. Go on, take a look! And please respect the NATURE! ;)',
     mainpageMostvisited: 'Top viewed places:',
-    weatherforecastTitle: 'Weather Forecast'
+    weatherforecastTitle: 'Weather Forecast',
+    weatherforecastLocal: 'Local Forecast:'
   };
   PT = {
     home: 'Inicio',
@@ -83,7 +84,8 @@ export class TranslationService {
       'Aqui poderá encontrar os melhores locais naturais do nosso país. Pode escolher e planear tudo graças ao nosso ' +
       'sistema de rating. Dê uma espreitadela! E por favor, respeite a Natureza! ;)',
     mainpageMostvisited: 'Locais mais visitados:',
-    weatherforecastTitle: 'Previsão Meteorológica'
+    weatherforecastTitle: 'Previsão Meteorológica',
+    weatherforecastLocal: 'Previsão Meteorológica Local:'
   };
   changeLang(lang: string) {
     this.language = lang;

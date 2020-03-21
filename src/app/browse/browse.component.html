@@ -7,23 +7,22 @@
 </div>
 <div class="filters">
   <div class="select">
-    <select name="categories" id="">
-      <option *ngFor="let item of Language.browse.categories" value="">{{ item }}</option>
+    <select name="categories" [(ngModel)]="SelectedCat" (change)="filterCards($event.target.value,SelectedReg)" id="">
+      <option *ngFor="let item of Language.browse.categories; index as i;" [value]='i'>{{ item }}</option>
     </select>
   </div>
   <div class="select">
-    <select name="" id="">
-      <option *ngFor="let item of Language.browse.region" value="">{{ item }}</option>
+    <select name="regions" [(ngModel)]="SelectedReg" (change)="filterCards(SelectedCat,$event.target.value)" id="">
+      <option *ngFor="let item of Language.browse.region; index as i;" [value]='i'>{{ item }}</option>
     </select>
   </div>
 </div>
 <div class="masonry">
-  <div *ngFor="let item of Cards" class="card color1 center rounded p-2 overlay">
+  <div *ngFor="let item of CardsFiltered" class="card color1 center rounded p-2 overlay">
     <h3 class="text-shadow white center">{{ item.title }}</h3>
     <img src="{{ item.img }}" alt="">
     <div>{{ item.description }}</div>
-    <div class="type">{{ Language.browse.categories[1] }}</div>
-    <div class="type region">{{ Language.browse.region[2] }}</div>
+    <div class="type">{{ Language.browse.categories[item.type] }}</div>
+    <div class="type region">{{ Language.browse.region[item.region] }}</div>
   </div>
-
 </div>
