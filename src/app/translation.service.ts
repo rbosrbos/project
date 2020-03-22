@@ -46,7 +46,8 @@ export class TranslationService {
       'to our rating system by our users. Go on, take a look! And please respect the NATURE! ;)',
     mainpageMostvisited: 'Top viewed places:',
     weatherforecastTitle: 'Weather Forecast',
-    weatherforecastLocal: 'Local Forecast:'
+    contactMessage: 'Message',
+    contactPlaceholderMessage: 'Tell us your message'
   };
   PT = {
     home: 'Inicio',
@@ -85,7 +86,8 @@ export class TranslationService {
       'sistema de rating. Dê uma espreitadela! E por favor, respeite a Natureza! ;)',
     mainpageMostvisited: 'Locais mais visitados:',
     weatherforecastTitle: 'Previsão Meteorológica',
-    weatherforecastLocal: 'Previsão Meteorológica Local:'
+    contactMessage: 'Mensagem',
+    contactPlaceholderMessage: 'Escreva aqui a sua mensagem'
   };
   changeLang(lang: string) {
     this.language = lang;

@@ -1,3 +1,12 @@
 <div class="title">
   <h1 class="color1 center text-shadow">{{ Language.contact }}</h1>
 </div>
+<form action="">
+  <div class="form-group overlay">
+    <div class="message">
+      <div style="flex-basis: 100%;">{{ Language.contactMessage }}:</div>
+      <div class="message"><textarea placeholder="{{ Language.contactPlaceholderMessage }}" name="" id="message" rows="10"></textarea></div>
+      <div><button type="submit" (click)="sendEmail()" class="bg-1 m-auto">Enviar</button></div>
+    </div>
+  </div>
+</form>

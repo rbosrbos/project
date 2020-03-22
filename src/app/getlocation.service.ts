@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
+import { Observable, Observer, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,7 @@ import { Observable, Observer } from 'rxjs';
 export class GetlocationService {
 
   getLocation(): Observable<any> {
-    const doit = new Observable((observer: Observer<any>) => {
+    return new Observable((observer: Observer<any>) => {
           if (window.navigator && window.navigator.geolocation) {
             window.navigator.geolocation.getCurrentPosition(
                 (position) => {
@@ -20,7 +20,6 @@ export class GetlocationService {
             observer.error('Unsupported Browser');
         }
     });
-    return doit;
 }
   constructor() { }
 }

@@ -14,6 +14,14 @@ export class ContactComponent implements OnInit {
   LangSubscription: Subscription;
   Title: Subject<string> = new Subject<string>();
 
+  sendEmail() {
+    let message = (<HTMLInputElement>document.getElementById('message')).value;
+    if (message === '') {
+    }
+    else {
+      window.location.href = 'mailto:me@example.com?subject=' + escape('LusoNature - Contact Form') + '&body=' + escape(message);
+    }
+  }
   constructor(private TitleService: Title, private langService: TranslationService) {
     this.Language = langService[langService.language];
     this.Title.subscribe((data) => {

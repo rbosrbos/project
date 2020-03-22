@@ -20,4 +20,6 @@ export interface ILanguage {
   navbarSunset: string;
   weatherforecastTitle: string;
   weatherforecastLocal: string;
+  contactMessage: string;
+  contactPlaceholderMessage: string;
 }

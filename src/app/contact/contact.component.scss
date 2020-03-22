@@ -1,1 +1,42 @@
 @import '../../style.vars.scss';
+
+.form-group {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  margin: auto;
+  color: var(--color2);
+  font-weight: bold;
+  flex-direction: column;
+  padding: 1em;
+  border-radius: 0.2rem;
+
+  div {
+    width: 100%;
+    min-height: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1em auto;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid var(--color3);
+    border-radius: 4px;
+  }
+
+  textarea:focus {
+    background-color: var(--color2);
+    border: 3px solid var(--color1);
+  }
+
+  .message {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto !important;
+  }
+}

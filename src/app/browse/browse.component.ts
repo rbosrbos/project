@@ -94,6 +94,9 @@ export class BrowseComponent implements OnInit {
       }
       console.log(this.CardsFiltered);
     }
+    openModal(e) {
+      console.log(e);
+    }
   constructor(private TitleService: Title, private langService: TranslationService) {
     this.Language = langService[langService.language];
     this.Title.subscribe((data) => {

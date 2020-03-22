@@ -38,4 +38,5 @@ export interface IForecast {
   wind: Wind;
   sys: Sys;
   dt_txt: string;
+  city?: string;
 }
