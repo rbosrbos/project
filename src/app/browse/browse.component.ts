@@ -4,6 +4,7 @@ import { TranslationService } from '../translation.service';
 import { Title } from '@angular/platform-browser';
 import { Subscription, Subject } from 'rxjs';
 import { ICard } from '../ICard';
+import { ModalService } from '../modal.service';
 
 
 @Component({
@@ -17,6 +18,16 @@ export class BrowseComponent implements OnInit {
   Title: Subject<string> = new Subject<string>();
   SelectedCat: number;
   SelectedReg: number;
+  CarouselImgs: string[];
+  slideIndex: number = 1;
+  public slides = [
+    { src: "https://picsum.photos/1920/1080" },
+    { src: "https://picsum.photos/1920/1080" },
+    { src: "https://picsum.photos/1920/1080" },
+    { src: "https://picsum.photos/1920/1080" }
+  ];
+
+
   Cards: ICard[]
   = [
       {
@@ -83,21 +94,25 @@ export class BrowseComponent implements OnInit {
         region: 3
       }
     ];
-    CardsFiltered: ICard[] = this.Cards;
-    filterCards(c: number, r: number) {
-      this.CardsFiltered = [];
-      for (const val of Object.keys(this.Cards)) {
-        const e = this.Cards[val];
-        if (((e.type === +c) || (+c === 0)) && ((e.region === +r) || (+r === 0))) {
-          this.CardsFiltered.push(e);
-        }
+  CardsFiltered: ICard[] = this.Cards;
+  filterCards(c: number, r: number) {
+    this.CardsFiltered = [];
+    for (const val of Object.keys(this.Cards)) {
+      const e = this.Cards[val];
+      if (((e.type === +c) || (+c === 0)) && ((e.region === +r) || (+r === 0))) {
+        this.CardsFiltered.push(e);
       }
-      console.log(this.CardsFiltered);
     }
-    openModal(e) {
-      console.log(e);
-    }
-  constructor(private TitleService: Title, private langService: TranslationService) {
+  }
+  // ============================================ MODAL
+  openModal(e: string) {
+    this.CarouselImgs = [
+      'https://pumpkin.pt/wp-content/uploads/2019/06/eduardo-vii-1.jpg',
+      'https://media-manager.noticiasaominuto.com/1920/1535190296/23984233.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/7/75/Parque_Eduardo_VII_Keil_do_Amaral_5367.jpg'      ];
+    this.Modal.open(e);
+  }
+  constructor(private TitleService: Title, private langService: TranslationService, private Modal: ModalService) {
     this.Language = langService[langService.language];
     this.Title.subscribe((data) => {
       TitleService.setTitle(langService.pageTitle + ' - ' + data);

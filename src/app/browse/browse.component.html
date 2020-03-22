@@ -1,6 +1,5 @@
-<div class="modal-background"></div>
 <div class="title">
-  <h1 class="color1 center text-shadow">{{ Language.browse.name }}</h1>
+  <h1 (click)="openModal('card')" class="color1 center text-shadow">{{ Language.browse.name }}</h1>
 </div>
 <div class="filters">
   <div class="top"><label for="categories">{{ Language.categories }}</label></div>
@@ -25,5 +24,19 @@
     <div>{{ item.description }}</div>
     <div class="type">{{ Language.browse.categories[item.type] }}</div>
     <div class="type region">{{ Language.browse.region[item.region] }}</div>
+  </div>
+</div>
+
+<div class="modal-background" id="card">
+  <div class="modal color0">
+    <div class="modal-title text-shadow center">Parque Eduardo VII</div>
+    <div class="carousel-container">
+      <div class="tainer">
+        <carousel [slides]="slides"></carousel>
+      </div>
+    </div>
+    <div class="modal-content">
+      The central park in Lisbon is known for its rolling hills and undulating lawns. As you wander around here, look back over the downtown area of the city for views that stretch as far as the river.
+    </div>
   </div>
 </div>

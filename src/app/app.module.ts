@@ -1,4 +1,5 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,9 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { BrowseComponent } from './browse/browse.component';
 import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
+import { ModalService } from './modal.service';
+import { CarouselComponent } from './carousel/carousel.component';
+import { CarouselItemDirective } from './carousel-item.directive';
 
 @NgModule({
   declarations: [
@@ -25,10 +29,13 @@ import { FormsModule } from '@angular/forms';
     WeatherforecastComponent,
     MainpageComponent,
     BrowseComponent,
-    ContactComponent
+    ContactComponent,
+    CarouselComponent,
+    CarouselItemDirective
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
@@ -37,7 +44,8 @@ import { FormsModule } from '@angular/forms';
   providers: [
     Title,
     ConstantsService,
-    GetlocationService
+    GetlocationService,
+    ModalService
   ],
   bootstrap: [AppComponent]
 })

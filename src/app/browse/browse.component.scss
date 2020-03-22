@@ -91,6 +91,14 @@ select::-ms-expand {
   color: var(--color4);
 }
 
+.tainer {
+  display: block;
+  height: 50vh;
+  width: 80vw;
+  padding: 2em;
+  margin: auto;
+}
+
 @media (max-width: $tablet) {
   .masonry {
     column-count: 2;
