@@ -1,18 +1,12 @@
-<!-- carousel -->
-<div class="carousel">
-  <ng-container *ngFor="let slide of slides; let i = index">
-    <img
-      *ngIf="i === currentSlide"
-      [src]="slide.src"
-      class="slide"
-    />
-  </ng-container>
-
-  <!-- controls -->
-  <button class="control prev" (click)="onPreviousClick()">
-    <span class="arrow left"></span>
-  </button>
-  <button class="control next" (click)="onNextClick()">
-    <span class="arrow right"></span>
-  </button>
-</div>
+<ng-container *ngIf="slides.length > 1; else elseTemplate">
+  <div class="container">
+    <div (click)="left()" class="left"><span>&#8249;</span></div>
+    <div *ngFor="let item of slides; index as i;" class="img">
+      <img *ngIf="i == Actual" [@fadeInOut] [src]="item" alt="">
+    </div>
+    <div (click)="right()" class="right"><span>&#8250;</span></div>
+  </div>
+</ng-container>
+<ng-template #elseTemplate>
+  <img style="max-width: 80%; display: block; margin: auto;" src="{{ slides[0] }}" alt="">
+</ng-template>

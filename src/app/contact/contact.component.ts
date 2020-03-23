@@ -15,10 +15,9 @@ export class ContactComponent implements OnInit {
   Title: Subject<string> = new Subject<string>();
 
   sendEmail() {
-    let message = (<HTMLInputElement>document.getElementById('message')).value;
-    if (message === '') {
-    }
-    else {
+    const message = (document.getElementById('message') as HTMLInputElement).value;
+    if (message === '') {console.log('sdaf');
+    } else {
       window.location.href = 'mailto:me@example.com?subject=' + escape('LusoNature - Contact Form') + '&body=' + escape(message);
     }
   }

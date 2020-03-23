@@ -26,108 +26,107 @@ export class WeatherforecastComponent implements OnInit {
   Dates: any[];
 
   mousemove = (e): void => {
-    let x = e.clientX,
-        y = e.clientY;
+    const x = e.clientX;
+    const y = e.clientY;
     const tooltip = document.getElementById('tooltip');
     tooltip.style.top = (y - 20) + 'px';
     tooltip.style.left = x + 'px';
     if ((e.toElement.id !== 'map') && (e.toElement.id !== 'svg') && (e.toElement.id !== '')) {
       tooltip.innerHTML = this.Language.weatherforecastTitle;
-    }
-    else {
+    } else {
       tooltip.innerHTML = '';
     }
   }
   showWeather(e) {
-    
+
     let url = 'https://api.openweathermap.org/data/2.5/forecast?appid=02575ed4ec5d28bce7934bd25e413ba1&units=metric&id=';
     console.log(e.target.dataset.city);
-    switch(e.target.dataset.city) {
+    switch (e.target.dataset.city) {
       case 'Acores':
         url += '3411865';
         this.CurrentPlace = 'Açores';
-      break;
+        break;
       case 'Aveiro':
         url += '2742610';
         this.CurrentPlace = 'Aveiro';
-      break;
+        break;
       case 'Beja':
         url += '2270984';
         this.CurrentPlace = 'Beja';
-      break;
+        break;
       case 'Braga':
         url += '2742031';
         this.CurrentPlace = 'Braga';
-      break;
+        break;
       case 'Braganca':
         url += '2742026';
         this.CurrentPlace = 'Bragança';
-      break;
+        break;
       case 'Castelo-Branco':
         url += '2269513';
         this.CurrentPlace = 'Castelo Branco';
-      break;
+        break;
       case 'Coimbra':
         url += '2740636';
         this.CurrentPlace = 'Coimbra';
-      break;
+        break;
       case 'Evora':
         url += '2268404';
         this.CurrentPlace = 'Évora';
-      break;
+        break;
       case 'Faro':
         url += '2268337';
         this.CurrentPlace = 'Faro';
-      break;
+        break;
       case 'Guarda':
         url += '2738782';
         this.CurrentPlace = 'Guarda';
-      break;
+        break;
       case 'Leiria':
         url += '2267094';
         this.CurrentPlace = 'Leiria';
-      break;
+        break;
       case 'Lisboa':
         url += '2267056';
         this.CurrentPlace = 'Lisboa';
-      break;
+        break;
       case 'Madeira':
         url += '2593105';
         this.CurrentPlace = 'Madeira';
-      break;
+        break;
       case 'Portalegre':
         url += '2264507';
         this.CurrentPlace = 'Portalegre';
-      break;
+        break;
       case 'Porto':
         url += '2735941';
         this.CurrentPlace = 'Porto';
-      break;
+        break;
       case 'Santarem':
         url += '2263478';
         this.CurrentPlace = 'Santarém';
-      break;
+        break;
       case 'Setubal':
         url += '2262963';
         this.CurrentPlace = 'Setúbal';
-      break;
+        break;
       case 'Viana-do-Castelo':
         url += '2732772';
         this.CurrentPlace = 'Viana do Castelo';
-      break;
+        break;
       case 'Vila-Real':
         url += '2732437';
         this.CurrentPlace = 'Vila Real';
-      break;
+        break;
       case 'Viseu':
         url += '2732264';
         this.CurrentPlace = 'Viseu';
-      break;
+        break;
     }
     this.http.get<any>(url)
           .subscribe(
             result => {
-              let custom = result.list;
+              const custom = result.list;
               custom[0].city = result.city.name + ' - ' + result.city.country;
               this.WeatherSubject.next(custom);
             });
@@ -160,7 +159,7 @@ export class WeatherforecastComponent implements OnInit {
 
         for (const item of Object.keys(this.WeatherForecastData)) {
           fullDate = new Date(this.WeatherForecastData[item].dt * 1000);
-          let time = fullDate.getHours();
+          const time = fullDate.getHours();
           let hour = time.toString();
           if (time < 10) {
             hour = '0' + time.toString();
@@ -198,13 +197,13 @@ export class WeatherforecastComponent implements OnInit {
       this.Location = location;
       this.Location.getLocation().subscribe(rep => {
           const url = 'https://api.openweathermap.org/data/2.5/forecast?appid=02575ed4ec5d28bce7934bd25e413ba1&units=metric&lat='
-          + rep.coords.latitude
-          + '&lon='
-          + rep.coords.longitude;console.log(url);
+                    + rep.coords.latitude
+                    + '&lon='
+                    + rep.coords.longitude;
           http.get<any>(url)
           .subscribe(
             result => {
-              let custom = result.list;
+              const custom = result.list;
               this.CurrentPlace = result.city.name + ' - ' + result.city.country;
               this.WeatherSubject.next(custom);
             });

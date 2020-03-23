@@ -1,27 +1,39 @@
-import { Component, Input } from "@angular/core";
+import { Component, OnInit, Input } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
-  selector: "carousel",
-  templateUrl: "./carousel.component.html",
-  styleUrls: ["./carousel.component.scss"],
+  selector: 'app-carousel',
+  templateUrl: './carousel.component.html',
+  styleUrls: ['./carousel.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void => *', animate(1000)),
+    ]),
+  ]
 })
+export class CarouselComponent implements OnInit {
+  @Input() slides: string[];
 
-export class CarouselComponent {
-  @Input() slides;
+  Actual = 0;
 
-  currentSlide = 0;
-
+  left() {
+    if (this.Actual === 0) {
+      this.Actual = this.slides.length - 1;
+    } else {
+      this.Actual--;
+    }
+  }
+  right() {
+    if (this.Actual === this.slides.length - 1) {
+      this.Actual = 0;
+    } else {
+      this.Actual++;
+    }
+  }
   constructor() {}
 
-  onPreviousClick() {
-    const previous = this.currentSlide - 1;
-    this.currentSlide = previous < 0 ? this.slides.length - 1 : previous;
-    // console.log("previous clicked, new current slide is: ", this.currentSlide);
-  }
-
-  onNextClick() {
-    const next = this.currentSlide + 1;
-    this.currentSlide = next === this.slides.length ? 0 : next;
-    // console.log("next clicked, new current slide is: ", this.currentSlide);
-  }
+  ngOnInit(): void {}
 }

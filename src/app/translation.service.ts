@@ -46,6 +46,7 @@ export class TranslationService {
       'to our rating system by our users. Go on, take a look! And please respect the NATURE! ;)',
     mainpageMostvisited: 'Top viewed places:',
     weatherforecastTitle: 'Weather Forecast',
+    changeLocation: 'Change location',
     contactMessage: 'Message',
     contactPlaceholderMessage: 'Tell us your message'
   };
@@ -86,6 +87,7 @@ export class TranslationService {
       'sistema de rating. Dê uma espreitadela! E por favor, respeite a Natureza! ;)',
     mainpageMostvisited: 'Locais mais visitados:',
     weatherforecastTitle: 'Previsão Meteorológica',
+    changeLocation: 'Mudar localização',
     contactMessage: 'Mensagem',
     contactPlaceholderMessage: 'Escreva aqui a sua mensagem'
   };

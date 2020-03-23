@@ -3,7 +3,7 @@
 </div>
 <div class="main-container">
   <div class="container">
-    <div class="el1"><div id="where">{{ CurrentPlace }}</div></div>
+    <div class="el1"><div id="where">{{ CurrentPlace }}</div><div class="change-location"><a (click)="">{{ Language.changeLocation }}</a></div></div>
     <div class="el1" *ngFor="let item of Dates">
       <div class="child">
         <div class="day">{{item.day}}</div>

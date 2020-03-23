@@ -79,6 +79,10 @@ export class NavbarComponent implements OnInit {
         name: this.Language.browse.name
       },
       {
+        href: '/forecast',
+        name: this.Language.weatherforecastTitle
+      },
+      {
         href: '#',
         name: 'Change Theme',
         dropdown: []
@@ -95,7 +99,7 @@ export class NavbarComponent implements OnInit {
     ];
     let i = 0;
     this.Consts.themeColors.forEach(element => {
-      this.Menu[2].dropdown.push({ name: this.Language.changeThemeOptions[i], id: i });
+      this.Menu[3].dropdown.push({ name: this.Language.changeThemeOptions[i], id: i });
       i++;
     });
   }

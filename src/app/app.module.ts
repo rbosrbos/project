@@ -15,11 +15,9 @@ import { ConstantsService } from './constants.service';
 import { GetlocationService } from './getlocation.service';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { BrowseComponent } from './browse/browse.component';
-import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
 import { ModalService } from './modal.service';
 import { CarouselComponent } from './carousel/carousel.component';
-import { CarouselItemDirective } from './carousel-item.directive';
 
 @NgModule({
   declarations: [
@@ -29,9 +27,7 @@ import { CarouselItemDirective } from './carousel-item.directive';
     WeatherforecastComponent,
     MainpageComponent,
     BrowseComponent,
-    ContactComponent,
-    CarouselComponent,
-    CarouselItemDirective
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

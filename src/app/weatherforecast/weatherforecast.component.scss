@@ -50,6 +50,14 @@ path:hover {
       border-radius: 1em;
       width: 100%;
 
+      .change-location {
+        display: none;
+
+        @media (max-width: $desktop) {
+          display: block;
+        }
+      }
+
       @media (max-width: $desktop) {
         margin: 0.4em 1em;
       }

@@ -6,7 +6,6 @@ import { Subscription, Subject } from 'rxjs';
 import { ICard } from '../ICard';
 import { ModalService } from '../modal.service';
 
-
 @Component({
   selector: 'app-browse',
   templateUrl: './browse.component.html',
@@ -18,15 +17,7 @@ export class BrowseComponent implements OnInit {
   Title: Subject<string> = new Subject<string>();
   SelectedCat: number;
   SelectedReg: number;
-  CarouselImgs: string[];
-  slideIndex: number = 1;
-  public slides = [
-    { src: "https://picsum.photos/1920/1080" },
-    { src: "https://picsum.photos/1920/1080" },
-    { src: "https://picsum.photos/1920/1080" },
-    { src: "https://picsum.photos/1920/1080" }
-  ];
-
+  Slides: string[];
 
   Cards: ICard[]
   = [
@@ -35,6 +26,11 @@ export class BrowseComponent implements OnInit {
         img: 'https://handluggageonly.co.uk/wp-content/uploads/2017/02/Parque-Eduardo-VII.jpg',
         description: 'The central park in Lisbon is known for its rolling hills and undulating lawns. As you wander around here, ' +
         'look back over the downtown area of the city for views that stretch as far as the river.',
+        slides: [
+          'https://pumpkin.pt/wp-content/uploads/2019/06/eduardo-vii-1.jpg',
+          'https://media-manager.noticiasaominuto.com/1920/1535190296/23984233.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/7/75/Parque_Eduardo_VII_Keil_do_Amaral_5367.jpg'
+        ],
         type: 3,
         region: 2
       },
@@ -105,12 +101,20 @@ export class BrowseComponent implements OnInit {
     }
   }
   // ============================================ MODAL
-  openModal(e: string) {
-    this.CarouselImgs = [
-      'https://pumpkin.pt/wp-content/uploads/2019/06/eduardo-vii-1.jpg',
-      'https://media-manager.noticiasaominuto.com/1920/1535190296/23984233.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/7/75/Parque_Eduardo_VII_Keil_do_Amaral_5367.jpg'      ];
-    this.Modal.open(e);
+  openModal(i: number) {
+    if (this.Cards[i].slides !== undefined) {
+      this.Slides = this.Cards[i].slides;
+      this.Slides.forEach(element => {
+        new Image().src = element;
+      });
+    } else {
+      this.Slides = [];
+      this.Slides[0] = this.Cards[i].img;
+    }
+    this.Modal.open(i);
+  }
+  closeModal() {
+    this.Modal.close();
   }
   constructor(private TitleService: Title, private langService: TranslationService, private Modal: ModalService) {
     this.Language = langService[langService.language];
