@@ -23,4 +23,11 @@ export interface ILanguage {
   changeLocation: string;
   contactMessage: string;
   contactPlaceholderMessage: string;
+  buttonFullBackground: string;
+  backToTop: string;
+  restaurants: string;
+  parks: string;
+  others: string;
+  has: string;
+  facilities: string;
 }

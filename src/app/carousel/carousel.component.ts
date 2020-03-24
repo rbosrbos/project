@@ -1,5 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 @Component({
   selector: 'app-carousel',
@@ -7,11 +13,14 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   styleUrls: ['./carousel.component.scss'],
   animations: [
     trigger('fadeInOut', [
-      state('void', style({
-        opacity: 0
-      })),
-      transition('void => *', animate(1000)),
-    ]),
+      state(
+        'void',
+        style({
+          opacity: 0
+        })
+      ),
+      transition('void => *', animate(1000))
+    ])
   ]
 })
 export class CarouselComponent implements OnInit {

@@ -52,6 +52,7 @@ path:hover {
 
       .change-location {
         display: none;
+        margin-left: 3em;
 
         @media (max-width: $desktop) {
           display: block;
@@ -118,16 +119,6 @@ path:hover {
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-  }
-
-  #tooltip {
-    position: fixed;
-    color: var(--color2);
-    font-weight: bold;
-
-    @media (max-width: $desktop) {
-      display: none;
     }
   }
 

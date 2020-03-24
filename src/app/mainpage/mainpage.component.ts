@@ -24,7 +24,11 @@ export class MainpageComponent implements OnInit {
         description: 'The central park in Lisbon is known for its rolling hills and undulating lawns. As you wander around here, ' +
         'look back over the downtown area of the city for views that stretch as far as the river.',
         type: 3,
-        region: 2
+        region: 2,
+        coordinates: {
+          lat: 38.728467,
+          lon: -9.152565
+        }
       },
       {
         title: 'Ponta da Piedade',
@@ -35,7 +39,11 @@ export class MainpageComponent implements OnInit {
         'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
         'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',
         type: 1,
-        region: 2
+        region: 2,
+        coordinates: {
+          lat: 37.079635,
+          lon: -8.668610
+        }
       },
       {
         title: 'Ponta da Piedade',
@@ -46,7 +54,11 @@ export class MainpageComponent implements OnInit {
         'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
         'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',
         type: 1,
-        region: 2
+        region: 2,
+        coordinates: {
+          lat: 37.079635,
+          lon: -8.668610
+        }
       }
   ];
 

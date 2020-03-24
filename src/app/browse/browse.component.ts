@@ -18,6 +18,9 @@ export class BrowseComponent implements OnInit {
   SelectedCat: number;
   SelectedReg: number;
   Slides: string[];
+  lat: number;
+  lon: number;
+  zoom = 15;
 
   Cards: ICard[]
   = [
@@ -32,7 +35,17 @@ export class BrowseComponent implements OnInit {
           'https://upload.wikimedia.org/wikipedia/commons/7/75/Parque_Eduardo_VII_Keil_do_Amaral_5367.jpg'
         ],
         type: 3,
-        region: 2
+        region: 2,
+        coordinates: {
+          lat: 38.728467,
+          lon: -9.152565
+        },
+        facilities: {
+          wc: true,
+          restaurants: true,
+          parks: true,
+          others: 'Playground and a water fountain. Lots and lots of places for walking the dog or have a good nap.'
+        }
       },
       {
         title: 'Ponta da Piedade',
@@ -43,7 +56,11 @@ export class BrowseComponent implements OnInit {
         'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
         'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',
         type: 1,
-        region: 3
+        region: 3,
+        coordinates: {
+          lat: 37.079635,
+          lon: -8.668610
+        }
       },
       {
         title: 'Ponta da Piedade',
@@ -54,7 +71,15 @@ export class BrowseComponent implements OnInit {
         'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
         'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',
         type: 1,
-        region: 3
+        region: 3,
+        coordinates: {
+          lat: 37.079635,
+          lon: -8.668610
+        },
+        facilities: {
+          wc: false,
+          restaurants: false
+        }
       },
       {
         title: 'Ponta da Piedade',
@@ -65,7 +90,15 @@ export class BrowseComponent implements OnInit {
         'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
         'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',
         type: 1,
-        region: 3
+        region: 3,
+        coordinates: {
+          lat: 37.079635,
+          lon: -8.668610
+        },
+        facilities: {
+          wc: false,
+          restaurants: false
+        }
       },
       {
         title: 'Ponta da Piedade',
@@ -76,7 +109,15 @@ export class BrowseComponent implements OnInit {
         'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
         'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',
         type: 1,
-        region: 3
+        region: 3,
+        coordinates: {
+          lat: 37.079635,
+          lon: -8.668610
+        },
+        facilities: {
+          wc: false,
+          restaurants: false
+        }
       },
       {
         title: 'Ponta da Piedade',
@@ -87,7 +128,15 @@ export class BrowseComponent implements OnInit {
         'opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da ' +
         'Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.',
         type: 1,
-        region: 3
+        region: 3,
+        coordinates: {
+          lat: 37.079635,
+          lon: -8.668610
+        },
+        facilities: {
+          wc: false,
+          restaurants: false
+        }
       }
     ];
   CardsFiltered: ICard[] = this.Cards;
@@ -111,6 +160,8 @@ export class BrowseComponent implements OnInit {
       this.Slides = [];
       this.Slides[0] = this.Cards[i].img;
     }
+    this.lat = this.Cards[i].coordinates.lat;
+    this.lon = this.Cards[i].coordinates.lon;
     this.Modal.open(i);
   }
   closeModal() {

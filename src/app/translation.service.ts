@@ -48,7 +48,14 @@ export class TranslationService {
     weatherforecastTitle: 'Weather Forecast',
     changeLocation: 'Change location',
     contactMessage: 'Message',
-    contactPlaceholderMessage: 'Tell us your message'
+    contactPlaceholderMessage: 'Tell us your message',
+    buttonFullBackground: 'View Full Background Image',
+    backToTop: 'Back to the top',
+    restaurants: 'Restaurants',
+    parks: 'Parking',
+    others: 'Others',
+    has: 'Has',
+    facilities: 'Facilities'
   };
   PT = {
     home: 'Inicio',
@@ -89,7 +96,14 @@ export class TranslationService {
     weatherforecastTitle: 'Previsão Meteorológica',
     changeLocation: 'Mudar localização',
     contactMessage: 'Mensagem',
-    contactPlaceholderMessage: 'Escreva aqui a sua mensagem'
+    contactPlaceholderMessage: 'Escreva aqui a sua mensagem',
+    buttonFullBackground: 'Ver imagem de fundo',
+    backToTop: 'Voltar ao topo',
+    restaurants: 'Restaurantes',
+    parks: 'parque de estacionamento',
+    others: 'Outros',
+    has: 'Tem',
+    facilities: 'Facilidades'
   };
   changeLang(lang: string) {
     this.language = lang;

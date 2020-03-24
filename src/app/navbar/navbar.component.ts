@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { IMenu } from 'src/app/IMenu';
 import { Subscription } from 'rxjs';
 import { ILanguage } from 'src/app/ILanguage';
@@ -13,9 +13,9 @@ import { TitleService } from '../title.service';
 })
 export class NavbarComponent implements OnInit {
   Consts: ConstantsService;
-  Language: ILanguage;
+  @Input() Language: ILanguage;
   subscription: Subscription;
-  Title: TitleService;
+
   Menu: IMenu[];
   changeTheme(e, i) {
     e.preventDefault();
@@ -65,22 +65,25 @@ export class NavbarComponent implements OnInit {
   changeLang(lang, e) {
     e.preventDefault();
     this.langService.changeLang(lang);
-    this.makeMenu();
   }
 
-  makeMenu() {
+  makeMenu(e?: ILanguage) {
+    let l = this.Language;
+    if (e !== undefined) {
+      l = e;
+    }
     this.Menu = [
       {
         href: '/',
-        name: this.Language.home
+        name: l.home
       },
       {
         href: '/browse',
-        name: this.Language.browse.name
+        name: l.browse.name
       },
       {
         href: '/forecast',
-        name: this.Language.weatherforecastTitle
+        name: l.weatherforecastTitle
       },
       {
         href: '#',
@@ -89,13 +92,8 @@ export class NavbarComponent implements OnInit {
       },
       {
         href: '/contact',
-        name: this.Language.contact
+        name: l.contact
       }
-      // {
-      //   href: '#',
-      //   name: 'User',
-      //   icon: faUser
-      // }
     ];
     let i = 0;
     this.Consts.themeColors.forEach(element => {
@@ -114,15 +112,14 @@ export class NavbarComponent implements OnInit {
   }
   constructor(private consts: ConstantsService, private langService: TranslationService, private title: TitleService) {
     this.Consts = consts;
-    this.Language = langService[langService.language];
     this.subscription = langService.languageChange.subscribe((value) => {
-        this.Language = value;
+        this.makeMenu(value);
     });
-    this.makeMenu();
   }
 
   ngOnInit(): void {
     window.addEventListener('scroll', this.scroll, true);
+    this.makeMenu();
   }
 
 }

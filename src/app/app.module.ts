@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faUser, faTree, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faTree, faChevronDown, faParking, faRestroom, faUtensils } from '@fortawesome/free-solid-svg-icons';
 import { WeatherComponent } from './weather/weather.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherforecastComponent } from './weatherforecast/weatherforecast.component';
@@ -18,6 +18,7 @@ import { BrowseComponent } from './browse/browse.component';
 import { FormsModule } from '@angular/forms';
 import { ModalService } from './modal.service';
 import { CarouselComponent } from './carousel/carousel.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,10 @@ import { CarouselComponent } from './carousel/carousel.component';
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB9DGej9ucJeg_z3jQutl1g_v2BWvvNltU'
+    })
   ],
   providers: [
     Title,
@@ -47,6 +51,6 @@ import { CarouselComponent } from './carousel/carousel.component';
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faUser, faTree, faChevronDown);
+    library.addIcons(faUser, faTree, faChevronDown, faParking, faRestroom, faUtensils);
   }
 }

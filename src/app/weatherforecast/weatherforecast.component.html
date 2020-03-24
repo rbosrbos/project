@@ -3,7 +3,7 @@
 </div>
 <div class="main-container">
   <div class="container">
-    <div class="el1"><div id="where">{{ CurrentPlace }}</div><div class="change-location"><a href="">{{ Language.changeLocation }}</a></div></div>
+    <div class="el1"><div id="where">{{ CurrentPlace }}</div><div class="change-location"> <a class="color0" style="cursor: pointer;" (click)="scrollToMap()">{{ Language.changeLocation }}</a></div></div>
     <div class="el1" *ngFor="let item of Dates">
       <div class="child">
         <div class="day">{{item.day}}</div>
@@ -18,7 +18,6 @@
     </div>
   </div>
   <div class="container">
-    <div id="tooltip"></div>
     <div id="map">
       <svg viewBox="0 0 593 900" width="80%" xmlns="http://www.w3.org/2000/svg">
         <g>

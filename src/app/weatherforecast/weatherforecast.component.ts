@@ -25,18 +25,10 @@ export class WeatherforecastComponent implements OnInit {
   CurrentPlace: string;
   Dates: any[];
 
-  mousemove = (e): void => {
-    const x = e.clientX;
-    const y = e.clientY;
-    const tooltip = document.getElementById('tooltip');
-    tooltip.style.top = (y - 20) + 'px';
-    tooltip.style.left = x + 'px';
-    if ((e.toElement.id !== 'map') && (e.toElement.id !== 'svg') && (e.toElement.id !== '')) {
-      tooltip.innerHTML = this.Language.weatherforecastTitle;
-    } else {
-      tooltip.innerHTML = '';
-    }
+  scrollToMap() {
+    document.getElementById('map').scrollIntoView({behavior: 'smooth'});
   }
+
   showWeather(e) {
 
     let url = 'https://api.openweathermap.org/data/2.5/forecast?appid=02575ed4ec5d28bce7934bd25e413ba1&units=metric&id=';
@@ -209,7 +201,5 @@ export class WeatherforecastComponent implements OnInit {
             });
       });
   }
-  ngOnInit(): void {
-    document.getElementById('map').addEventListener('mousemove', this.mousemove, true);
-  }
+  ngOnInit(): void {}
 }

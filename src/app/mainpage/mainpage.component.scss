@@ -12,6 +12,10 @@
   @media (max-width: $desktop) {
     padding: 3em;
     margin-top: 5vh;
+
+    .show-bg {
+      display: none;
+    }
   }
 
   .header-image {

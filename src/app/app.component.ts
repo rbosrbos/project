@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { ILanguage } from 'src/app/ILanguage';
+import { Subscription } from 'rxjs';
 import { TranslationService } from './translation.service';
 
 @Component({
@@ -8,7 +10,27 @@ import { TranslationService } from './translation.service';
 })
 
 export class AppComponent implements OnInit {
-  constructor() {
+  Language: ILanguage;
+  LangSubscription: Subscription;
+
+  scroll = (event): void => {
+    const nav = document.querySelector('.go-up').classList;
+    if (window.pageYOffset > 100) {
+      nav.add('block');
+      nav.remove('hidden');
+    } else {
+      nav.remove('block');
+      nav.add('hidden');
+
+    }
   }
-  ngOnInit(): void {}
+  constructor(private langService: TranslationService) {
+    this.Language = langService[langService.language];
+    this.LangSubscription = langService.languageChange.subscribe((value) => {
+        this.Language = value;
+    });
+  }
+  ngOnInit(): void {
+    window.addEventListener('scroll', this.scroll, true);
+  }
 }
