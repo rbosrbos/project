@@ -4,4 +4,4 @@
     <router-outlet></router-outlet>
   </div>
 </main>
-<div class="go-up color2 text-shadow hidden">| {{ Language.backToTop }} <fa-icon [icon]="['fas', 'chevron-down']"></fa-icon></div>
+<div (click)="scrollTop()" class="go-up color2 text-shadow hidden">| {{ Language.backToTop }} <fa-icon [icon]="['fas', 'chevron-down']"></fa-icon></div>

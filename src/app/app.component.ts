@@ -24,6 +24,9 @@ export class AppComponent implements OnInit {
 
     }
   }
+  scrollTop() {
+    document.getElementsByTagName('body')[0].scrollIntoView({behavior: 'smooth'});
+  }
   constructor(private langService: TranslationService) {
     this.Language = langService[langService.language];
     this.LangSubscription = langService.languageChange.subscribe((value) => {
