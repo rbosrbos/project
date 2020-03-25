@@ -161,6 +161,10 @@ button {
   display: none;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .bg-1 {
   background-color: var(--color1);
 }
@@ -269,9 +273,7 @@ button {
   bottom: 2.5em;
   writing-mode: vertical-rl;
   left: 0.5em;
-  // opacity: 0.9;
   font-size: 1em;
-  width: 100%;
   transform: rotate(180deg);
 
   @media (min-width: $desktop) {
@@ -306,6 +308,36 @@ button {
 
   100% {
     bottom: 1.2em;
+  }
+}
+
+.close-modal {
+  display: none;
+  opacity: 0;
+  font-size: 2rem;
+  position: fixed;
+  z-index: 20;
+  top: 0.2em;
+  right: 1.8rem;
+  color: var(--color3);
+  animation: pulse 1s infinite linear;
+  transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 1.15, 1.15);
+    transform: scale3d(1.15, 1.15, 1.15);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 

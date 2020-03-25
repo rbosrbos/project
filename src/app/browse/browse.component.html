@@ -21,7 +21,7 @@
   <div *ngFor="let item of CardsFiltered; index as i;" (click)="openModal(i)"
     class="card color1 center rounded p-2 overlay">
     <h3 class="text-shadow white center">{{ item.title }}</h3>
-    <img src="{{ item.img }}" alt="">
+    <img src="{{ item.slides[0] }}" alt="">
     <div>{{ item.description }}</div>
     <div class="type">{{ Language.browse.categories[item.type] }}</div>
     <div class="type region">{{ Language.browse.region[item.region] }}</div>
@@ -48,39 +48,32 @@
         <div class="top center color0 text-shadow">
           <h1>{{Language.facilities}}</h1>
         </div>
-        <div *ngIf="!item.facilities; else tempElse" class="item">
-          <div>
-            <div style="transform: rotate(-10deg); font-weight: bold;">N/A</div>
-          </div>
-        </div>
-        <ng-template #tempElse>
-          <div *ngIf="item.facilities.restaurants" class="item">
+          <div *ngIf="item.facilities" [ngClass]="{'has': item.facilities.restaurants}" class="item">
             <div>
               <div>
                 <fa-icon title="{{ Language.has }} {{ Language.restaurants }}" [icon]="['fas', 'utensils']"></fa-icon>
               </div>
             </div>
           </div>
-          <div class="item">
+          <div *ngIf="item.facilities" [ngClass]="{'has': item.facilities.wc}" class="item">
             <div>
               <div>
                 <fa-icon title="{{ Language.has }} WC" [icon]="['fas', 'restroom']"></fa-icon>
               </div>
             </div>
           </div>
-          <div *ngIf="item.facilities.parks" class="item">
+          <div *ngIf="item.facilities" [ngClass]="{'has': item.facilities.parks}" class="item">
             <div>
               <div>
                 <fa-icon title="{{ Language.has }} {{ Language.parks }}" [icon]="['fas', 'parking']"></fa-icon>
               </div>
             </div>
           </div>
-          <div style="flex-basis: 100%; margin-top: 3em;">
+          <div *ngIf="item.facilities" style="flex-basis: 100%; margin-top: 3em;">
             {{ item.facilities.others }}
           </div>
-        </ng-template>
       </div>
     </div>
-    <button class="block color3 bg-1 m-auto" (click)="closeModal()">Close</button>
   </div>
 </div>
+<fa-icon (click)="closeModal()" class="pointer block close-modal" title="{{ Language.close }}" [icon]="['fas', 'times']"></fa-icon>

@@ -30,4 +30,5 @@ export interface ILanguage {
   others: string;
   has: string;
   facilities: string;
+  close: string;
 }

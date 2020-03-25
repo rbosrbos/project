@@ -3,7 +3,7 @@
 .masonry {
   width: 95%;
   margin: auto;
-  column-count: 3;
+  column-count: 4;
   column-gap: 3em;
 }
 
@@ -91,6 +91,12 @@ select::-ms-expand {
   color: var(--color4);
 }
 
+@media (max-width: $desktop) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
 @media (max-width: $tablet) {
   .masonry {
     column-count: 2;
@@ -105,7 +111,12 @@ select::-ms-expand {
 
 .more {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  height: 30vw;
+
+  @media (max-width: $tablet) {
+    height: 80vw;
+  }
 
   .map {
     width: 50%;
@@ -126,7 +137,7 @@ select::-ms-expand {
     margin: 1em;
     width: 50%;
     height: auto;
-    color: var(--color3);
+    color: var(--color2);
     position: relative;
     flex-wrap: wrap;
     justify-content: center;
@@ -152,6 +163,7 @@ select::-ms-expand {
       background-color: white;
       position: relative;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      opacity: 0.3;
 
       @media (max-width: $desktop) {
         width: 40px;
@@ -169,6 +181,7 @@ select::-ms-expand {
         display: flex;
         justify-content: center;
         align-items: center;
+        color: var(--color3);
 
         fa-icon {
           display: block;
@@ -184,6 +197,10 @@ select::-ms-expand {
 
     .item + .item {
       margin-left: 1em;
+    }
+
+    .has {
+      opacity: 1;
     }
   }
 }

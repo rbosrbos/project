@@ -9,6 +9,11 @@ export class ModalService {
     const body = document.getElementsByTagName('BODY') as HTMLCollectionOf<HTMLElement>;
     modal.style.top = '0';
     body[0].style.overflow = 'hidden';
+    const closeButton = document.getElementsByClassName('close-modal')[0] as HTMLElement;
+    closeButton.style.display = 'block';
+    setTimeout(() => {
+      closeButton.style.opacity = '1';
+    }, 1000);
   }
   public close() {
     const modal = document.getElementsByClassName('modal-background');
@@ -17,5 +22,8 @@ export class ModalService {
       modal[i].style.top = '-110vh';
     }
     body[0].style.overflow = 'auto';
+    const closeButton = document.getElementsByClassName('close-modal')[0] as HTMLElement;
+    closeButton.style.display = 'none';
+    closeButton.style.opacity = '0';
   }
 }

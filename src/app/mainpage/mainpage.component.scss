@@ -4,10 +4,10 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  margin-top: 15vh;
   min-height: 15em;
   padding: 5em;
   text-align: center;
-  margin-top: 15vh;
 
   @media (max-width: $desktop) {
     padding: 3em;

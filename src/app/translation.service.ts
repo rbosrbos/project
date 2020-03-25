@@ -23,7 +23,9 @@ export class TranslationService {
         'All',
         'North',
         'Center',
-        'South'
+        'South',
+        'Madeira',
+        'Azores'
       ]
     },
     categories: 'Categories',
@@ -55,7 +57,8 @@ export class TranslationService {
     parks: 'Parking',
     others: 'Others',
     has: 'Has',
-    facilities: 'Facilities'
+    facilities: 'Facilities',
+    close: 'Close'
   };
   PT = {
     home: 'Inicio',
@@ -71,7 +74,9 @@ export class TranslationService {
         'Todas',
         'Norte',
         'Centro',
-        'Sul'
+        'Sul',
+        'Madeira',
+        'Açores'
       ]
     },
     categories: 'Categorias',
@@ -103,7 +108,8 @@ export class TranslationService {
     parks: 'parque de estacionamento',
     others: 'Outros',
     has: 'Tem',
-    facilities: 'Facilidades'
+    facilities: 'Facilidades',
+    close: 'Fechar'
   };
   changeLang(lang: string) {
     this.language = lang;
