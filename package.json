@@ -28,7 +28,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
     "@fortawesome/free-regular-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
-    "compress-images": "^1.6.1",
     "ng-lazyload-image": "^7.1.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
