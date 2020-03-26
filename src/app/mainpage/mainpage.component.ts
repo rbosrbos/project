@@ -23,6 +23,7 @@ export class MainpageComponent implements OnInit {
   lat: number;
   lon: number;
   zoom = 15;
+  headerImg = 'assets/images/header-image.webp';
 
   showBG() {
     const x = document.querySelectorAll('div');
