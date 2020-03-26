@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -37,6 +38,7 @@ import { AgmCoreModule } from '@agm/core';
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
+    LazyLoadImageModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB9DGej9ucJeg_z3jQutl1g_v2BWvvNltU'
     })

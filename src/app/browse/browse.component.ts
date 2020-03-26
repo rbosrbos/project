@@ -22,7 +22,8 @@ export class BrowseComponent implements OnInit {
   lat: number;
   lon: number;
   zoom = 15;
-
+  teste = '../../assets/images/default.jpg';
+  
   Cards: ICard[] = exampleData;
   CardsFiltered: ICard[] = this.Cards;
   filterCards(c: number, r: number) {
