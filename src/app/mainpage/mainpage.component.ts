@@ -4,6 +4,8 @@ import { TranslationService } from '../translation.service';
 import { ILanguage } from '../ILanguage';
 import { Subscription, Subject } from 'rxjs';
 import { ICard } from '../ICard';
+import { ModalService } from '../modal.service';
+import exampleData from '../browse/example.json';
 
 @Component({
   selector: 'app-mainpage',
@@ -16,8 +18,11 @@ export class MainpageComponent implements OnInit {
   Language: ILanguage;
   LangSubscription: Subscription;
   Title: Subject<string> = new Subject<string>();
-  Cards: ICard[]
-  = [];
+  Cards: ICard[] = exampleData;
+  Slides: string[];
+  lat: number;
+  lon: number;
+  zoom = 15;
 
   showBG() {
     const x = document.querySelectorAll('div');
@@ -30,8 +35,25 @@ export class MainpageComponent implements OnInit {
     }); } , 2000);
   }
 
-
-  constructor(private TitleService: Title, private langService: TranslationService) {
+// ============================================ MODAL
+openModal(i: number) {
+  if (this.Cards[i].slides.length > 1) {
+    this.Slides = this.Cards[i].slides;
+    this.Slides.forEach(element => {
+      new Image().src = element;
+    });
+  } else {
+    this.Slides = [];
+    this.Slides[0] = this.Cards[i].slides[0];
+  }
+  this.lat = this.Cards[i].coordinates.lat;
+  this.lon = this.Cards[i].coordinates.lon;
+  this.Modal.open(i);
+}
+closeModal() {
+  this.Modal.close();
+}
+  constructor(private TitleService: Title, private langService: TranslationService, private Modal: ModalService) {
     this.Language = langService[langService.language];
     this.Title.subscribe((data) => {
       TitleService.setTitle(langService.pageTitle + ' - ' + data);

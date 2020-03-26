@@ -1,11 +1,12 @@
 <div class="header overlay">
-  <div class="header-image"> 
+  <div class="header-image">
     <img src="assets/images/header-image.webp" alt="">
   </div>
   <div class="header-description color1">
     <h1>{{ Language.mainpageHeader }}</h1>
     {{ Language.mainpageContent }}
-    <div><button class="bg-1 m-auto my-1 center show-bg" style="max-width: 20em;" (click)="showBG()">{{ Language.buttonFullBackground }}</button></div>
+    <div><button class="bg-1 m-auto my-1 center show-bg" style="max-width: 20em;"
+        (click)="showBG()">{{ Language.buttonFullBackground }}</button></div>
   </div>
 
 </div>
@@ -15,29 +16,65 @@
       {{ Language.mainpageMostvisited }}
     </h1>
   </div>
-  <div class="card color1 center rounded p-2 overlay">
-    <h3 class="text-shadow white center">Local 1</h3>
-    <img
-      src="../../assets/images/bgs/1.webp"
-      alt="">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsum odit explicabo itaque sequi perspiciatis vero
-    quam distinctio sit in. Eum, adipisci culpa? Dolore odit facere fugit impedit autem tenetur.
+  <div *ngFor="let item of Cards | slice:0:3; index as i;" (click)="openModal(i)">
+    <div class="card color1 center rounded p-2 overlay">
+      <h3 class="text-shadow white center">{{item.title}}</h3>
+      <img src="{{item.slides[0]}}" alt="">
+      {{item.description}}
+    </div>
   </div>
-  <div class="card color1 center rounded p-2 overlay">
-    <h3 class="text-shadow white center">Local 2</h3>
-    <img
-      src="../../assets/images/bgs/1.webp"
-      alt="">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsum odit explicabo itaque sequi perspiciatis vero
-    quam distinctio sit in. Eum, adipisci culpa? Dolore odit facere fugit impedit autem tenetur.
-  </div>
-  <div class="card color1 center rounded p-2 overlay">
-    <h3 class="text-shadow white center">Local 3</h3>
-    <img
-      src="../../assets/images/bgs/1.webp"
-      alt="">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ipsum odit explicabo itaque sequi perspiciatis vero
-    quam distinctio sit in. Eum, adipisci culpa? Dolore odit facere fugit impedit autem tenetur.
-  </div>
-
 </div>
+
+
+<!-- Modais -->
+
+
+<div *ngFor="let item of Cards | slice:0:3; index as i;" class="modal-background" id="modal-{{i}}">
+  <div class="modal color0">
+    <div class="modal-top-shadow"></div>
+    <div class="modal-title text-shadow center">{{ item.title }}</div>
+    <div class="carousel-container">
+      <app-carousel [slides]="Slides"></app-carousel>
+    </div>
+    <div class="modal-content text-shadow color2">
+      {{ item.description }}
+    </div>
+    <div class="more">
+      <div class="map">
+        <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lon">
+          <agm-marker [latitude]="lat" [longitude]="lon"></agm-marker>
+        </agm-map>
+      </div>
+      <div class="facilities">
+        <div class="top center color0 text-shadow">
+          <h1>{{Language.facilities}}</h1>
+        </div>
+          <div *ngIf="item.facilities" [ngClass]="{'has': item.facilities.restaurants}" class="item">
+            <div>
+              <div>
+                <fa-icon title="{{ Language.has }} {{ Language.restaurants }}" [icon]="['fas', 'utensils']"></fa-icon>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="item.facilities" [ngClass]="{'has': item.facilities.wc}" class="item">
+            <div>
+              <div>
+                <fa-icon title="{{ Language.has }} WC" [icon]="['fas', 'restroom']"></fa-icon>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="item.facilities" [ngClass]="{'has': item.facilities.parks}" class="item">
+            <div>
+              <div>
+                <fa-icon title="{{ Language.has }} {{ Language.parks }}" [icon]="['fas', 'parking']"></fa-icon>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="item.facilities" style="flex-basis: 100%; margin-top: 3em;">
+            {{ item.facilities.others }}
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<fa-icon (click)="closeModal()" class="pointer block close-modal" title="{{ Language.close }}" [icon]="['fas', 'times']"></fa-icon>
