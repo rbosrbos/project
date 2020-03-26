@@ -22,7 +22,7 @@
     class="card color1 center rounded p-2 overlay">
     <h3 class="text-shadow white center">{{ item.title }}</h3>
     <!-- <img src="{{ item.slides[0] }}" alt=""> -->
-    <img [defaultImage]="teste" [lazyLoad]="item.slides[0]">
+    <img [lazyLoad]="item.slides[0]">
     <div>{{ item.description }}</div>
     <div class="type">{{ Language.browse.categories[item.type] }}</div>
     <div class="type region">{{ Language.browse.region[item.region] }}</div>
