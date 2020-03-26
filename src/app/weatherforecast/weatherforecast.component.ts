@@ -32,7 +32,6 @@ export class WeatherforecastComponent implements OnInit {
   showWeather(e) {
 
     let url = 'https://api.openweathermap.org/data/2.5/forecast?appid=02575ed4ec5d28bce7934bd25e413ba1&units=metric&id=';
-    console.log(e.target.dataset.city);
     switch (e.target.dataset.city) {
       case 'Acores':
         url += '3411865';
@@ -139,8 +138,6 @@ export class WeatherforecastComponent implements OnInit {
       });
       this.WeatherSubject.subscribe((data) => {
         this.WeatherForecastData = data;
-        // this.CurrentPlace = data[0].city;
-        // console.log(data);
         let fullDate = new Date(this.WeatherForecastData[0].dt * 1000);
         let day = fullDate.getDate();
         let month = fullDate.getMonth() + 1;
@@ -184,7 +181,6 @@ export class WeatherforecastComponent implements OnInit {
           }
         }
         this.Dates = localDates;
-        // console.log(this.Dates);
       });
       this.Location = location;
       this.Location.getLocation().subscribe(rep => {
