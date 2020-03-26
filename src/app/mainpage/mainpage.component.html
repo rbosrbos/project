@@ -19,7 +19,7 @@
   <div *ngFor="let item of Cards | slice:0:3; index as i;">
     <div class="card color1 center rounded p-2 overlay">
       <h3 class="text-shadow white center">{{item.title}}</h3>
-      <img [lazyLoad]="item.slides[0]">
+      <img [lazyLoad]="item.slides[0]" alt="{{item.title}}">
       {{item.description}}
     </div>
   </div>
