@@ -2,10 +2,10 @@
     "title": "Parque Eduardo VII",
     "description": "The central park in Lisbon is known for its rolling hills and undulating lawns. As you wander around here, look back over the downtown area of the city for views that stretch as far as the river.",
     "slides": [
-      "https://handluggageonly.co.uk/wp-content/uploads/2017/02/Parque-Eduardo-VII.jpg",
-      "https://pumpkin.pt/wp-content/uploads/2019/06/eduardo-vii-1.jpg",
-      "https://media-manager.noticiasaominuto.com/1920/1535190296/23984233.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/7/75/Parque_Eduardo_VII_Keil_do_Amaral_5367.jpg"
+      "../../assets/images/browse/1/1.jpg",
+      "../../assets/images/browse/1/2.jpg",
+      "../../assets/images/browse/1/3.jpg",
+      "../../assets/images/browse/1/4.jpg"
     ],
     "type": 3,
     "region": 2,
@@ -24,7 +24,7 @@
   {
     "title": "Ponta da Piedade",
     "slides": [
-      "https://i1.wp.com/gringajourneys.com/wp-content/uploads/2017/06/6137529974_970cefe89e_o.jpg?ssl=1"
+      "../../assets/images/browse/2/1.jpg"
     ],
     "description": "Although Ponta da Piedade is typically filled with tourists, I still recommend checking it out. I regret that I didn’t spend more time there! I knew I wanted to make a boat trip during my time in the Algarve but ended up doing this at Benagil beach to see the famous Benagil Cave (side note: it was a little expensive but worth snapping a photo here). In my opinion, if you’re hoping to see grottos and save a little cash, considering going on one of the boat tours here at Ponta da Piedade. This location offers activities such as hiking, kayaking, and stand up paddleboarding.",
     "type": 1,
@@ -49,10 +49,10 @@
       "others": "This area is fed by waters from two streams - the Silvalde ditch, which has its mouth on the north side of the lagoon and the Maceda / Rio Lambo ditch which flows into its south side - which due to the coastal dune cord originate the central body of the pond. Originated by the deposition of sand near the mouth of a small water line, the dune cord that is opened seasonally for water renewal."
     },
     "slides": [
-      "https://www.evasoes.pt/files/2018/10/28634447_BINARY_GI27072017ANDREGOUVEIA0048_resultado-1-1620x1080.jpg",
-      "https://s1.wklcdn.com/image_20/628682/19762319/12426166Master.jpg",
-      "https://s2.wklcdn.com/image_66/1984929/19865106/12445196Master.jpg",
-      "https://i.pinimg.com/originals/16/d6/2c/16d62cb7a8a391e438c8e73cc71faa2b.jpg"
+      "../../assets/images/browse/3/1.jpg",
+      "../../assets/images/browse/3/2.jpg",
+      "../../assets/images/browse/3/3.jpg",
+      "../../assets/images/browse/3/4.jpg"
     ]
   },
 
@@ -66,10 +66,10 @@
       "lon": -8.678814
     },
     "slides": [
-      "https://upload.wikimedia.org/wikipedia/commons/8/8b/Parque_da_Cidade_%28sunset%29.jpg",
-      "https://cdn.wegow.com/media/venues/parque-da-cidade-do-porto/parque-da-cidade-do-porto-1502278990.49.2560x1440.jpg",
-      "https://lh3.googleusercontent.com/proxy/cLeKzhK7yGDqStTAGKeeurN7VC5SMBCzQqtvQ_uN9uXmZnCLNaKGzeyBYpFnT-x7jHeofs7Mq9C1dieXNjNCZgXkjUc21z3fVEhg8emQ8Q5R7RNgHzuxS-SH35A-76nXzsJ6FTc",
-      "https://i.ytimg.com/vi/C81JAHZHH60/maxresdefault.jpg"
+      "../../assets/images/browse/4/1.jpg",
+      "../../assets/images/browse/4/2.jpg",
+      "../../assets/images/browse/4/3.jpg",
+      "../../assets/images/browse/4/4.jpg"
     ],
     "facilities": {
       "wc": true,
@@ -87,8 +87,8 @@
       "lon": -25.273964
     },
     "slides": [
-      "https://thumbs.web.sapo.io/?pic=http://mb.web.sapo.io/d95c813c4a4751b7760f5e1dfaac04ecfb9c13fb.jpg&W=2100&H=1400&delay_optim=1&tv=2&webp=1",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Parque_D._Carlos_I_by_juntas.jpg/1920px-Parque_D._Carlos_I_by_juntas.jpg"
+      "../../assets/images/browse/5/1.webp",
+      "../../assets/images/browse/5/2.jpg"
     ],
     "facilities": {}
   },
@@ -96,8 +96,8 @@
   {
     "title": "Parque D. Carlos I",
     "slides": [
-      "https://thumbs.web.sapo.io/?pic=http://mb.web.sapo.io/5f97f1f3e46b807722b36d1152008bd1ee6d3b6d.jpg&W=2100&H=1400&delay_optim=1&tv=2&webp=1",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Parque_D._Carlos_I_by_juntas.jpg/1920px-Parque_D._Carlos_I_by_juntas.jpg"
+      "../../assets/images/browse/6/1.webp",
+      "../../assets/images/browse/6/2.jpg"
     ],
     "description": "Parque D. Carlos I is located in the city of Caldas da Rainha, in the District of Leiria, in Portugal. It is a romantic garden, attached to the Rainha D. Leonor Thermal Hospital. It was named after King Carlos I of Portugal.",
     "type": 2,
@@ -114,8 +114,8 @@
   {
     "title": "Praia da Apúlia",
     "slides": [
-      "https://3.bp.blogspot.com/-ITQhEKh34js/XKiPnYLf6YI/AAAAAAAAiTg/qNUSU_d4sOwnFaKNQEd6XJaYdd8a5nYIwCLcBGAs/s1600/nbhhg.JPG",
-      "https://imgs-akamai.mnstatic.com/73/07/730765ac02c3ac317d25b032faf19e9c.jpg"
+      "../../assets/images/browse/7/1.jpg",
+      "../../assets/images/browse/7/2.jpg"
     ],
     "description": "Extensive sandy beach, where there are some rocky outcrops to the north. It ends at the jetty to the south. Wooden walkways allow easier access to the sand. Windmills transformed into housing to crown an old dune.",
     "type": 1,
@@ -134,8 +134,8 @@
   {
     "title": "Praia de S. Jacinto",
     "slides": [
-      "https://cportugalfilmcommission.pt/wp-content/uploads/2018/05/sao_jacinto6.jpg",
-      "https://praiasprio.beachcam.pt/media/5227/th_3.jpg?quality=60"
+      "../../assets/images/browse/8/1.jpg",
+      "../../assets/images/browse/8/2.jpg"
     ],
     "description": "São Jacinto Beach is located next to Canal da Barra, at the southern end of a long strip of land that separates the Ria de Aveiro from the sea. For those in Aveiro, the fastest transport to get to São Jacinto is the boat that crosses the Ria on regular connections, since to come by car it is necessary to go to Torreira or Ovar, where there are bridges, and then return south .",
     "type": 1,
