@@ -1,6 +1,8 @@
 [[headers]]
+  # Define which paths this specific [[headers]] block will cover.
   for = "/*"
-    #  Multi-value headers are expressed with multi-line strings
+
+  [headers.values]
 	cache-control = '''
 	max-age=0,
 	no-cache,
