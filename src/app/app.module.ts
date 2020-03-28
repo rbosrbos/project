@@ -20,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { ModalService } from './modal.service';
 import { CarouselComponent } from './carousel/carousel.component';
 import { AgmCoreModule } from '@agm/core';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { AgmCoreModule } from '@agm/core';
     LazyLoadImageModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB9DGej9ucJeg_z3jQutl1g_v2BWvvNltU'
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     Title,
