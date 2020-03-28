@@ -4,7 +4,6 @@
 
   [headers.values]
 	cache-control = '''
-	max-age=0,
-	no-cache,
-	no-store,
+	max-age=31536000,
+  private,
 	must-revalidate'''
