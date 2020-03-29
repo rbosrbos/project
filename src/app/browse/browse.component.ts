@@ -69,10 +69,8 @@ export class BrowseComponent implements OnInit {
     this.SelectedCat = 0;
     this.SelectedReg = 0;
   }
-  resize = (event?): void => { console.log('resized')
+  resize = (): void => {
     const masonry = document.getElementById('masonry');
-    // console.log(event.target.innerWidth);
-    // console.log(event.target.innerHeight);
     if (this.CardsFiltered.length < 4) {
       masonry.classList.add('masonry-flex');
     } else {
@@ -90,7 +88,6 @@ export class BrowseComponent implements OnInit {
         this.SelectedReg = region;
         this.filterCards(type, region);
       });
-    window.addEventListener('resize', this.resize, true);
   }
 
 }
