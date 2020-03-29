@@ -5,6 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { Subscription, Subject } from 'rxjs';
 import { ICard } from '../ICard';
 import { ModalService } from '../modal.service';
+import { ActivatedRoute } from '@angular/router';
 import exampleData from './example.json';
 
 @Component({
@@ -25,6 +26,7 @@ export class BrowseComponent implements OnInit {
 
   Cards: ICard[] = exampleData;
   CardsFiltered: ICard[] = this.Cards;
+
   filterCards(c: number, r: number) {
     this.CardsFiltered = [];
     for (const val of Object.keys(this.Cards)) {
@@ -33,26 +35,28 @@ export class BrowseComponent implements OnInit {
         this.CardsFiltered.push(e);
       }
     }
+    this.resize();
   }
+
   // ============================================ MODAL
   openModal(i: number) {
-    if (this.Cards[i].slides.length > 1) {
-      this.Slides = this.Cards[i].slides;
+    if (this.CardsFiltered[i].slides.length > 1) {
+      this.Slides = this.CardsFiltered[i].slides;
       this.Slides.forEach(element => {
         new Image().src = element;
       });
     } else {
       this.Slides = [];
-      this.Slides[0] = this.Cards[i].slides[0];
+      this.Slides[0] = this.CardsFiltered[i].slides[0];
     }
-    this.lat = this.Cards[i].coordinates.lat;
-    this.lon = this.Cards[i].coordinates.lon;
+    this.lat = this.CardsFiltered[i].coordinates.lat;
+    this.lon = this.CardsFiltered[i].coordinates.lon;
     this.Modal.open(i);
   }
   closeModal() {
     this.Modal.close();
   }
-  constructor(private TitleService: Title, private langService: TranslationService, private Modal: ModalService) {
+  constructor(private TitleService: Title, private langService: TranslationService, private Modal: ModalService, private route: ActivatedRoute) {
     this.Language = langService[langService.language];
     this.Title.subscribe((data) => {
       TitleService.setTitle(langService.pageTitle + ' - ' + data);
@@ -65,7 +69,28 @@ export class BrowseComponent implements OnInit {
     this.SelectedCat = 0;
     this.SelectedReg = 0;
   }
-
-  ngOnInit(): void {}
+  resize = (event?): void => { console.log('resized')
+    const masonry = document.getElementById('masonry');
+    // console.log(event.target.innerWidth);
+    // console.log(event.target.innerHeight);
+    if (this.CardsFiltered.length < 4) {
+      masonry.classList.add('masonry-flex');
+    } else {
+      if (masonry.classList.contains('masonry-flex')) {
+        masonry.classList.remove('masonry-flex');
+      }
+    }
+  }
+  ngOnInit(): void {
+    this.route.queryParams
+      .subscribe(params => {
+        const type = params.type ? params.type : 0;
+        const region = params.region ? params.region : 0;
+        this.SelectedCat = type;
+        this.SelectedReg = region;
+        this.filterCards(type, region);
+      });
+    window.addEventListener('resize', this.resize, true);
+  }
 
 }

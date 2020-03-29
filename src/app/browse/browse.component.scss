@@ -1,6 +1,6 @@
 @import '../../style.vars.scss';
 
-.masonry {
+#masonry {
   width: 95%;
   margin: auto;
   column-count: 4;
@@ -27,6 +27,23 @@
 
 .card:hover {
   transform: none;
+}
+
+.masonry-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  column-count: auto;
+  column-gap: auto;
+  width: 100%;
+
+  .card {
+    width: 400px;
+  }
+
+  .card + .card {
+    margin-left: 1em;
+  }
 }
 
 .filters {
@@ -91,20 +108,21 @@ select::-ms-expand {
   color: var(--color4);
 }
 
+// ======================================= Media Queries =======================================
 @media (max-width: $desktop) {
-  .masonry {
+  #masonry {
     column-count: 3;
   }
 }
 
 @media (max-width: $tablet) {
-  .masonry {
+  #masonry {
     column-count: 2;
   }
 }
 
 @media (max-width: $mobile) {
-  .masonry {
+  #masonry {
     column-count: 1;
   }
 }

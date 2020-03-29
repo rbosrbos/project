@@ -5,7 +5,7 @@
   <div class="header-description color1">
     <h1>{{ Language.mainpageHeader }}</h1>
     {{ Language.mainpageContent }}
-    <div><button class="bg-1 m-auto my-1 center show-bg" style="max-width: 20em;"
+    <div><button class="bg-3 m-auto my-1 center show-bg" style="max-width: 20em;"
         (click)="showBG()">{{ Language.buttonFullBackground }}</button></div>
   </div>
 
@@ -16,7 +16,7 @@
       {{ Language.mainpageMostvisited }}
     </h1>
   </div>
-  <div *ngFor="let item of Cards | slice:0:3; index as i;">
+  <div *ngFor="let item of Cards | slice:0:3; index as i;" [routerLink]="['/browse']" [queryParams]="{type: item.type, region: item.region}">
     <div class="card color1 center rounded p-2 overlay">
       <h3 class="text-shadow white center">{{item.title}}</h3>
       <img [lazyLoad]="item.slides[0]" alt="{{item.title}}">
