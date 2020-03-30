@@ -38,7 +38,6 @@ export class AppComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         this.Loading = false;
       }
-  
       // Set loading state to false in both of the below events to hide the spinner in case a request fails
       if (event instanceof NavigationCancel) {
         this.Loading = false;
@@ -54,8 +53,8 @@ export class AppComponent implements OnInit {
         this.Language = value;
     });
     router.events.subscribe((event: RouterEvent) => {
-      this.navigationInterceptor(event)
-    })
+      this.navigationInterceptor(event);
+    });
   }
   ngOnInit(): void {
     window.addEventListener('scroll', this.scroll, true);

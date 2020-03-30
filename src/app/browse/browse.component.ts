@@ -56,7 +56,12 @@ export class BrowseComponent implements OnInit {
   closeModal() {
     this.Modal.close();
   }
-  constructor(private TitleService: Title, private langService: TranslationService, private Modal: ModalService, private route: ActivatedRoute) {
+  constructor(
+    private TitleService: Title,
+    private langService: TranslationService,
+    private Modal: ModalService,
+    private route: ActivatedRoute
+    ) {
     this.Language = langService[langService.language];
     this.Title.subscribe((data) => {
       TitleService.setTitle(langService.pageTitle + ' - ' + data);
