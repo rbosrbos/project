@@ -19,6 +19,8 @@ export class NavbarComponent implements OnInit {
   Menu: IMenu[];
   changeTheme(e, i) {
     e.preventDefault();
+    const themeMeta = document.querySelector('meta[name=theme-color]');
+    themeMeta.setAttribute('content', this.consts.themeColors[i].colors[3]);
     for (let j = 0; j < this.consts.themeColors[i].colors.length; j++) {
       document.documentElement.style.setProperty('--color' + j, this.consts.themeColors[i].colors[j]);
     }
