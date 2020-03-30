@@ -38,7 +38,16 @@
 #MostVisited {
   flex-wrap: wrap;
   justify-content: center;
-  overflow: hidden;
+
+  .card {
+    height: 85%;
+  }
+
+  @media (max-width: $mobile) {
+    .card {
+      width: 265px;
+    }
+  }
 }
 
 @media (max-width: $desktop) {
