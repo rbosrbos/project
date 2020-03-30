@@ -345,11 +345,12 @@ button {
 
 .more {
   display: flex;
-  align-items: center;
+  // align-items: center;
   height: 30vw;
 
   @media (max-width: $tablet) {
-    height: 80vw;
+    // min-height: 80vw;
+    height: auto;
   }
 
   .map {

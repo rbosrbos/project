@@ -52,6 +52,9 @@ export class BrowseComponent implements OnInit {
     this.lat = this.CardsFiltered[i].coordinates.lat;
     this.lon = this.CardsFiltered[i].coordinates.lon;
     this.Modal.open(i);
+    const mapContainer = document.getElementById('map');
+    const map = document.getElementsByTagName('agm-map')[i] as HTMLElement;
+    map.style.height = '100%';
   }
   closeModal() {
     this.Modal.close();

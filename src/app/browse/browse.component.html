@@ -38,7 +38,7 @@
           {{ item.description }}
         </div>
         <div class="more">
-          <div class="map">
+          <div class="map" id="map">
             <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lon">
               <agm-marker [latitude]="lat" [longitude]="lon"></agm-marker>
             </agm-map>
@@ -69,7 +69,7 @@
                 </div>
               </div>
             </div>
-            <div *ngIf="item.facilities" style="flex-basis: 100%; margin-top: 3em;">
+            <div *ngIf="item.facilities" style="flex-basis: 100%; margin-top: 3em; height: auto; margin-bottom: 3em;">
               {{ item.facilities.others }}
             </div>
           </div>
