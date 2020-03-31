@@ -49,9 +49,9 @@ export class WeatherComponent implements OnInit {
         this.Lat +
         '&lon=' +
         this.Lon;
-        if (langService.language === 'PT') {
-          this.Url += '&lang=pt';
-        }
+      if (langService.language === 'PT') {
+        this.Url += '&lang=pt';
+      }
       http.get<RootObject>(this.Url).subscribe(result => {
         this.WeatherData = result;
       });
