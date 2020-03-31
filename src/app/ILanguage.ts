@@ -31,4 +31,5 @@ export interface ILanguage {
   has: string;
   facilities: string;
   close: string;
+  send: string;
 }
