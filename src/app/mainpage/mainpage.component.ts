@@ -56,6 +56,7 @@ closeModal() {
 }
   constructor(private TitleService: Title, private langService: TranslationService, private Modal: ModalService) {
     this.Language = langService[langService.language];
+    this.langService.popCards(this.Cards);
     this.Title.subscribe((data) => {
       TitleService.setTitle(langService.pageTitle + ' - ' + data);
     });
@@ -63,6 +64,7 @@ closeModal() {
     this.LangSubscription = langService.languageChange.subscribe((value) => {
         this.Language = value;
         this.Title.next(value.home);
+        this.langService.popCards(this.Cards);
     });
   }
   ngOnInit(): void {}

@@ -66,6 +66,7 @@ export class BrowseComponent implements OnInit {
     private route: ActivatedRoute
     ) {
     this.Language = langService[langService.language];
+    this.langService.popCards(this.Cards);
     this.Title.subscribe((data) => {
       TitleService.setTitle(langService.pageTitle + ' - ' + data);
     });
@@ -73,6 +74,7 @@ export class BrowseComponent implements OnInit {
     this.LangSubscription = langService.languageChange.subscribe((value) => {
         this.Language = value;
         this.Title.next(value.browse.name);
+        this.langService.popCards(this.Cards);
     });
     this.SelectedCat = 0;
     this.SelectedReg = 0;

@@ -1,6 +1,7 @@
 export interface ICard {
   title: string;
-  description: string;
+  description_en: string;
+  description_pt: string;
   slides?: string[];
   type: number;
   region: number;
@@ -15,5 +16,6 @@ interface Facilities {
   wc?: boolean;
   restaurants?: boolean;
   parks?: boolean;
-  others?: string;
+  others_en?: string;
+  others_pt?: string;
 }

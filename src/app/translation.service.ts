@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ILanguage } from 'src/app/ILanguage';
 import { Subject } from 'rxjs';
+import { ICard } from './ICard';
 
 @Injectable({
   providedIn: 'root'
@@ -114,5 +115,16 @@ export class TranslationService {
   changeLang(lang: string) {
     this.language = lang;
     this.languageChange.next(this[lang]);
+  }
+  popCards(cards: ICard[]) {
+    for (const val of Object.keys(cards)) {
+      if (this.language === 'EN') {
+        cards[val].description = cards[val].description_en;
+        cards[val].others = cards[val].others_en;
+      } else if (this.language === 'PT') {
+        cards[val].description = cards[val].description_pt;
+        cards[val].others = cards[val].others_pt;
+      }
+    }
   }
 }
