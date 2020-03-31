@@ -38,9 +38,23 @@
 #MostVisited {
   flex-wrap: wrap;
   justify-content: center;
+  overflow: hidden;
+
+  .title {
+    width: auto;
+    flex-basis: 100%;
+  }
 
   .card {
-    height: 85%;
+    display: flex;
+    width: 23vw;
+    flex-direction: column;
+
+    .description {
+      display: flex;
+      height: 100%;
+      align-items: center;
+    }
   }
 
   @media (max-width: $mobile) {

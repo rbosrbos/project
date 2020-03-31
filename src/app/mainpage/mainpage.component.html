@@ -11,11 +11,15 @@
 
 </div>
 <div id="MostVisited" class="flex" style="width: 90%;">
-  <div class="card-container" *ngFor="let item of Cards | slice:0:3; index as i;" [routerLink]="['/browse']" [queryParams]="{type: item.type, region: item.region}">
-    <div class="card color1 center rounded p-2 overlay">
+  <div class="title m-auto center color1">
+    <h1 class="text-shadow">
+      {{ Language.mainpageMostvisited }}
+    </h1>
+  </div>
+  
+    <div class="card color1 center rounded p-2 overlay" *ngFor="let item of Cards | slice:0:3; index as i;" [routerLink]="['/browse']" [queryParams]="{type: item.type, region: item.region}">
       <h3 class="text-shadow white center">{{item.title}}</h3>
       <img [lazyLoad]="item.slides[0]" alt="{{item.title}}">
-      <div class="desc">{{item.description}}</div>
+      <div class="description">{{item.description}}</div>
     </div>
-  </div>
 </div>

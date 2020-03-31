@@ -11,7 +11,7 @@ export class ConstantsService {
     },
     {
       name: 'Greenish',
-      colors: ['#F5FDC6', '#F5C396', '#D0B17A', '#41521F', '#A89F68']
+      colors: ['#D0B17A', '#F5C396', '#F5FDC6', '#41521F', '#A89F68']
     },
     {
       name: 'Marine',
