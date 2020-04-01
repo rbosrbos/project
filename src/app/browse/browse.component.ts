@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ILanguage } from 'src/app/ILanguage';
 import { TranslationService } from '../translation.service';
 import { Title } from '@angular/platform-browser';
@@ -15,7 +15,7 @@ import exampleData from './example.json';
   templateUrl: './browse.component.html',
   styleUrls: ['./browse.component.scss']
 })
-export class BrowseComponent implements OnInit {
+export class BrowseComponent implements OnInit, AfterViewInit {
   Language: ILanguage;
   LangSubscription: Subscription;
   Title: Subject<string> = new Subject<string>();
@@ -69,7 +69,7 @@ export class BrowseComponent implements OnInit {
     private langService: TranslationService,
     private Modal: ModalService,
     private route: ActivatedRoute,
-    private cdRef:ChangeDetectorRef
+    private cdRef: ChangeDetectorRef
     ) {
     this.Language = langService[langService.language];
     this.langService.popCards(this.Cards);
@@ -101,7 +101,7 @@ export class BrowseComponent implements OnInit {
       .subscribe(params => {
         const item = params.item ? params.item : 0;
         if (typeof item === 'string') {
-          this.openModal(parseInt(item));
+          this.openModal(parseInt(item, 10));
           this.cdRef.detectChanges();
         }
       });

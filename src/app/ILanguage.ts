@@ -32,4 +32,5 @@ export interface ILanguage {
   facilities: string;
   close: string;
   send: string;
+  share: string;
 }

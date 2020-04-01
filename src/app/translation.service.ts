@@ -60,7 +60,8 @@ export class TranslationService {
     has: 'Has',
     facilities: 'Facilities',
     close: 'Close',
-    send: 'Send'
+    send: 'Send',
+    share: 'Share'
   };
   PT = {
     home: 'Inicio',
@@ -112,7 +113,8 @@ export class TranslationService {
     has: 'Tem',
     facilities: 'Facilidades',
     close: 'Fechar',
-    send: 'Enviar'
+    send: 'Enviar',
+    share: 'Partilhar'
   };
   changeLang(lang: string) {
     this.language = lang;
