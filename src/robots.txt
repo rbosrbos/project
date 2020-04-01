@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://rui-frontend.netlify.com/sitemap.xml
