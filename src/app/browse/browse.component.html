@@ -32,7 +32,7 @@
         <div class="modal-top-shadow"></div>
         <div class="modal-title text-shadow center">{{ item.title }}</div>
         <div class="face-parent">
-          <div class="pointer" (click)="fbShare()">
+          <div class="pointer" (click)="fbShare(i)">
             <fa-icon [icon]="['fab', 'facebook']"></fa-icon>
             <span>{{ Language.share }} </span>
           </div>

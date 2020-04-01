@@ -61,8 +61,8 @@ export class BrowseComponent implements OnInit, AfterViewInit {
   closeModal() {
     this.Modal.close();
   }
-  fbShare() {
-    window.open('https://www.facebook.com/sharer/sharer.php?u=' + window.location.href, '_blank');
+  fbShare(i) {
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL + '?item=' + i, '_blank');
   }
   constructor(
     private TitleService: Title,
