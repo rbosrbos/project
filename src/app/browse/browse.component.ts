@@ -62,7 +62,7 @@ export class BrowseComponent implements OnInit, AfterViewInit {
     this.Modal.close();
   }
   fbShare(i) {
-    window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL + '?item=' + i, '_blank');
+    window.open('https://www.facebook.com/sharer/sharer.php?u=https://rui-frontend.netlify.com/browse?item=' + i, '_blank');
   }
   constructor(
     private TitleService: Title,
