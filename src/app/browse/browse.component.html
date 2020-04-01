@@ -31,6 +31,12 @@
       <div class="modal color0">
         <div class="modal-top-shadow"></div>
         <div class="modal-title text-shadow center">{{ item.title }}</div>
+        <div class="face-parent">
+          <div class="pointer" (click)="fbShare()">
+            <fa-icon [icon]="['fab', 'facebook']"></fa-icon>
+            <span>Share</span>
+          </div>
+        </div>
         <div class="carousel-container">
           <app-carousel [slides]="Slides"></app-carousel>
         </div>
@@ -80,3 +86,4 @@
 </div>
 <fa-icon (click)="closeModal()" class="pointer block close-modal" title="{{ Language.close }}"
   [icon]="['fas', 'times']"></fa-icon>
+  

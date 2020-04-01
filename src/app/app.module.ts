@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faUser, faTree, faChevronDown, faParking, faRestroom, faUtensils, faTimes, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faTree, faChevronDown, faParking, faRestroom, faUtensils, faTimes, faCog,  } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { WeatherComponent } from './weather/weather.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherforecastComponent } from './weatherforecast/weatherforecast.component';
@@ -56,6 +57,6 @@ import { environment } from '../environments/environment';
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faUser, faTree, faChevronDown, faParking, faRestroom, faUtensils, faTimes, faCog);
+    library.addIcons(faUser, faTree, faChevronDown, faParking, faRestroom, faUtensils, faTimes, faCog, faFacebook);
   }
 }

@@ -17,7 +17,7 @@
     </h1>
   </div>
   
-    <div class="card color1 center rounded p-2 overlay" *ngFor="let item of Cards | slice:0:3; index as i;" [routerLink]="['/browse']" [queryParams]="{type: item.type, region: item.region}">
+    <div class="card color1 center rounded p-2 overlay" *ngFor="let item of Cards | slice:0:3; index as i;" [routerLink]="['/browse']" [queryParams]="{item: i}">
       <h3 class="text-shadow white center">{{item.title}}</h3>
       <img [lazyLoad]="item.slides[0]" alt="{{item.title}}">
       <div class="description">{{item.description}}</div>

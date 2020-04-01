@@ -108,6 +108,32 @@ select::-ms-expand {
   color: var(--color4);
 }
 
+.face-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5em;
+
+  div {
+    background-color: #1877f2;
+    color: white;
+    width: 4em;
+    border-radius: 0.2rem;
+    padding: 0.2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    fa-icon {
+      font-size: 1em;
+    }
+
+    span {
+      margin-left: 0.5em;
+      font-size: 0.7em;
+    }
+  }
+}
 // ======================================= Media Queries =======================================
 @media (max-width: $desktop) {
   #masonry {

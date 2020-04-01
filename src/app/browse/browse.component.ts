@@ -6,6 +6,8 @@ import { Subscription, Subject } from 'rxjs';
 import { ICard } from '../ICard';
 import { ModalService } from '../modal.service';
 import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
+
 import exampleData from './example.json';
 
 @Component({
@@ -59,11 +61,15 @@ export class BrowseComponent implements OnInit {
   closeModal() {
     this.Modal.close();
   }
+  fbShare() {
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + window.location.href, '_blank');
+  }
   constructor(
     private TitleService: Title,
     private langService: TranslationService,
     private Modal: ModalService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cdRef:ChangeDetectorRef
     ) {
     this.Language = langService[langService.language];
     this.langService.popCards(this.Cards);
@@ -89,14 +95,15 @@ export class BrowseComponent implements OnInit {
       }
     }
   }
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  ngAfterViewInit(): void {
     this.route.queryParams
       .subscribe(params => {
-        const type = params.type ? params.type : 0;
-        const region = params.region ? params.region : 0;
-        this.SelectedCat = type;
-        this.SelectedReg = region;
-        this.filterCards(type, region);
+        const item = params.item ? params.item : 0;
+        if (typeof item === 'string') {
+          this.openModal(parseInt(item));
+          this.cdRef.detectChanges();
+        }
       });
   }
 
