@@ -33,7 +33,7 @@ export class WeatherforecastComponent implements OnInit {
 
   showWeather(e) {
     this.Url =
-      'https://api.openweathermap.org/data/2.5/forecast?appid=02575ed4ec5d28bce7934bd25e413ba1&units=metric&id=';
+      'https://api.openweathermap.org/data/2.5/forecast?appid=YOUR_API_KEY&units=metric&id=';
     switch (e.target.dataset.city) {
       case 'Acores':
         this.Url += '3411865';
@@ -205,7 +205,7 @@ export class WeatherforecastComponent implements OnInit {
       this.Lat = rep.coords.latitude;
       this.Lon = rep.coords.longitude;
       this.Url =
-        'https://api.openweathermap.org/data/2.5/forecast?appid=02575ed4ec5d28bce7934bd25e413ba1&units=metric&lat=' +
+        'https://api.openweathermap.org/data/2.5/forecast?appid=YOUR_API_KEY&units=metric&lat=' +
         this.Lat +
         '&lon=' +
         this.Lon;
