@@ -43,7 +43,7 @@ import { environment } from '../environments/environment';
     FormsModule,
     LazyLoadImageModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB9DGej9ucJeg_z3jQutl1g_v2BWvvNltU'
+      apiKey: 'EXAMPLE'
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
